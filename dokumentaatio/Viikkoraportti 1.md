@@ -25,3 +25,8 @@ jump point search) ja vertailla miten ne toimii eri kartoilla.
 * Tarkistin että issueiden luominen repoon on sallittu
 * Tein tämän viikko raportin.
 * Tein määrittelydokumentin. 
+* Lisäsi raporttiin miten paljon olen käyttänyt tähän projektiin tällä viikolla.
+
+
+## Käytetty aikaa tällä viikolla:
+~6 tuntia
