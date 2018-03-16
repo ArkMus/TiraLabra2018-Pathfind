@@ -25,6 +25,7 @@ syötteen teksti muodossa.
 
 ### A* ja Jump Point Search
 Pahimman tapauksen aikavaativuus: O(|E|) = O(b^d) 
+
 Pahimman tapauksen tilavaativuus: O(|V|) = O(b^d)
 
 
