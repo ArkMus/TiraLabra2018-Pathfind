@@ -2,3 +2,5 @@
 /build/
 
 
+/PathFinding/.nb-gradle/
+/PathFinding/build/

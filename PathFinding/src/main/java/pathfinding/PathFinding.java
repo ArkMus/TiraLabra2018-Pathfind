@@ -5,7 +5,7 @@ package pathfinding;
 public class PathFinding {
     
     public static void main(String[] args) {
-        int[][] map = {
+        int[][] map = {         //Just a test map to test that the algorithm works
         {0,0,0,0,0,0,2},
         {0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0},

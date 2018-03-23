@@ -41,7 +41,13 @@ public class Node implements Comparable<Node>{
     public void setLeft(Node left) {
         this.left = left;
     }
-
+    
+    /**
+     * Initialize node.
+     * @param x X Coordinate
+     * @param y Y Coordinate
+     * @param cost The cost to a node
+     */
     public Node(int x, int y, int cost) {
         this.x = x;
         this.y = y;
@@ -56,7 +62,12 @@ public class Node implements Comparable<Node>{
             return 1;
         }
     }    
-    
+    /**
+     * Are two nodes equal?. Testing if two nodes are equal on the basis of 
+     * their x and y coordinates.
+     * @param o the node that is being compared to.
+     * @return 
+     */
     public boolean equal(Node o){
         if(this.x == o.getX() && this.y == o.getY()){
             return true;

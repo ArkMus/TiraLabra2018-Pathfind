@@ -16,7 +16,8 @@ public class AStar {
     }
     
     /**
-     * The find method
+     * The main algorithm. First it initializes all nodes and neighbors. Then does
+     * A* logic (template provided by wikipedia).
      * @param start The node where the search starts from
      * @param end The node that is the destination
      * @return 
@@ -113,6 +114,14 @@ public class AStar {
         return -1;
     }
     
+    /**
+     * Reconstructing the path. By using the cameFrom map, the method goes backwards
+     * to reconstruct the path from start to end.
+     * @param cameFrom The map that contains the best path to a node
+     * @param current The end node
+     * @param start The start node
+     * @return 
+     */
     public ArrayList<Node> reconstructPath(HashMap<Node, Node> cameFrom, Node current, Node start){
         ArrayList<Node> path = new ArrayList<>();
         while(!current.equal(start)){
@@ -124,6 +133,13 @@ public class AStar {
         return path;
     }
     
+    /**
+     * Calculating Heuristic distance. By using the ManhattanDistance(Taxicab geometry)
+     * calculates the "shortest" distance from one node to another.
+     * @param a The start node
+     * @param b The end node
+     * @return 
+     */
     public int ManhattanDistance(Node a, Node b){
         return (Math.abs(a.getX() - b.getX()) + Math.abs(a.getY() - b.getY()));
     }
