@@ -16,7 +16,9 @@
 ## Perjantai 23.3.2018
 
 * Luin Junit tutorialia
-* Tein Junit testejä kaikille metodeille 
+* Tein Junit testejä kaikille metodeille
+* Kirjoitin javadoc:eja
+* Projekti siirretty gradle projektiin
 * Kirjoitin viikkoraportin
 
 
