@@ -9,9 +9,9 @@ import java.util.PriorityQueue;
 
 public class AStar {
     
-    private int[][] map;
+    private char[][] map;
 
-    public AStar(int[][] map) {
+    public AStar(char[][] map) {
         this.map = map;
     }
     
@@ -35,9 +35,13 @@ public class AStar {
         HashMap<Node, Integer> Ecost = new HashMap<>();
         //List containing all the neighbors to a node
         Node[][] nodes = new Node[map.length][map[0].length];
-        //TODO add to all nodes their neighbors
+        
         for (int y = 0; y < map.length; y++){
-            for (int x = 0; x < map[0].length; x++) {                
+            for (int x = 0; x < map[0].length; x++) {
+                if(map[y][x] == '@' || map[y][x] == 'O' || map[y][x] == 'T'){
+                    continue;
+                }
+                
                 Node current = new Node(x, y, 1);
                 nodes[y][x] = current;
                 if (current.equal(start)){
@@ -51,6 +55,7 @@ public class AStar {
             }
         }
         
+        // Adding to all nodes their neighbors
         for(Node n : Scost.keySet()){
             if(n.getY() != 0){
                 n.setUp(nodes[n.getY()-1][n.getX()]);
