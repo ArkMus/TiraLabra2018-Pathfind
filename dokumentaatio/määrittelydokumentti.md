@@ -8,6 +8,7 @@
 * Jump Point Search
 
 
+
 ## Miksi valitsin kyseiset algoritmit/tietorakenteet
 
 Tietorakenteet ja algoritmit kurssin aikana sai vain toteuttaa BFS, DFS ja Dijkstra. Luin itse A star:ista ja minua kiinnosti miksi juuri se on usein 
@@ -24,9 +25,10 @@ syötteen teksti muodossa.
 
 
 ### A* ja Jump Point Search
-Pahimman tapauksen aikavaativuus: O(|E|) = O(b^d) 
+Aikavaativuus on sama kuin Dijkstralla, mutta se riippuu mitä heuristiikkaa käyttää. Tässä tapauksessa käytän priority queue:tä, niin
+pahimman tapauksen aikavaativuus on: O(|E| + |V|log|V|), missä E on "edges" ja V on "vertices". 
 
-Pahimman tapauksen tilavaativuus: O(|V|) = O(b^d)
+Pahimman tapauksen tilavaativuus: O(V²), missä V on "vertices".
 
 
 ## Lähteet

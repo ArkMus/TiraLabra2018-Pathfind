@@ -40,15 +40,8 @@ public class AStarTest {
      */
     @Test
     public void testFind() {
-        int[][] map = {
-            {0, 0, 0, 0, 0, 0, 2},
-            {0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0},
-            {1, 0, 0, 0, 0, 0, 0}
-        };
+        Map_reader mp = new Map_reader("/home/markusan/uniprojects/TiraLab/TiraLabra2018-Pathfind/PathFinding/src/test/java/pathfinding/test.map");
+        char[][] map = mp.generateMap();
         AStar ASTAR = new AStar(map);
         Node start = new Node(0, 6, 1);
         Node end = new Node(6, 0, 1);
@@ -61,11 +54,8 @@ public class AStarTest {
      */
     @Test
     public void testReconstructPath() {
-        int[][] map = {
-            {1, 0, 0},
-            {0, 0, 0},
-            {0, 0, 2},
-        };
+        Map_reader mp = new Map_reader("/home/markusan/uniprojects/TiraLab/TiraLabra2018-Pathfind/PathFinding/src/test/java/pathfinding/test2.map");
+        char[][] map = mp.generateMap();
         AStar tstar = new AStar(map);
         Node start = new Node(0, 0, 1);
         Node end = new Node(2, 2, 1);
@@ -98,7 +88,7 @@ public class AStarTest {
     @Test
     public void testManhattanDistance() {
         System.out.println("ManhattanDistance");
-        int[][] map = {{}};
+        char[][] map = {{}};
         AStar tstar = new AStar(map);
         Node a = new Node(4, 3, 1);
         Node b = new Node(7, 4, 1);
