@@ -1,6 +1,7 @@
 /nbproject/private/
 /build/
-.gradle
+*.gradle
 
 /PathFinding/.nb-gradle/
 /PathFinding/build/
+
