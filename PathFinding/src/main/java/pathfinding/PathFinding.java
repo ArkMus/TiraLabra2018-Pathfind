@@ -1,22 +1,23 @@
-
 package pathfinding;
 // author Markus Andersson
- 
+
 public class PathFinding {
-    
+
     public static void main(String[] args) {
-        Map_reader mr = new Map_reader("/home/markusan/uniprojects/TiraLab/TiraLabra2018-Pathfind/PathFinding/src/main/java/pathfinding/Maps/test2.map");
+        Map_reader mr = new Map_reader("/home/markusan/uniprojects/TiraLab/TiraLabra2018-Pathfind/PathFinding/src/main/java/pathfinding/Maps/test.map");
         char[][] map = mr.generateMap();
-        AStar ASTAR = new AStar(map);
-        Node start = new Node(18, 0, 1);
-        Node end = new Node(0, 12, 1);
-        int anwser = ASTAR.find(start, end);
-        if(anwser == -1){
+        AStar astar = new AStar(map);
+        JPS jps = new JPS(map);
+        Node start = new Node(6, 0, 1);
+        Node end = new Node(0, 6, 1);
+        int anwser = astar.find(start, end);
+//        int anwser = jps.find(start, end);
+        if (anwser == -1) {
             System.out.println("ERROR, didn't find path...RIP");
-        }else{
+        } else {
             System.out.println("and it's " + anwser + " steps long");
         }
-        
+
 //        Map_reader mr = new Map_reader("/home/markusan/uniprojects/TiraLab/TiraLabra2018-Pathfind/PathFinding/src/main/java/pathfinding/Maps/test.map");
 //        char[][] map = mr.generateMap();
 //        
@@ -26,7 +27,6 @@ public class PathFinding {
 //            }
 //            System.out.println("");
 //        }
-        
     }
-    
+
 }

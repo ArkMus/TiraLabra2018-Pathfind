@@ -1,45 +1,20 @@
 
 package pathfinding;
 
+import java.util.ArrayList;
+
 public class Node implements Comparable<Node>{
     private int x;
     private int y;
     private int cost;
-    private Node up;
-    private Node right;
-    private Node down;
-    private Node left;
+    private ArrayList<Node> neighbors;
 
-    public Node getUp() {
-        return up;
+    public ArrayList<Node> getNeighbors() {
+        return neighbors;
     }
 
-    public void setUp(Node up) {
-        this.up = up;
-    }
-
-    public Node getRight() {
-        return right;
-    }
-
-    public void setRight(Node right) {
-        this.right = right;
-    }
-
-    public Node getDown() {
-        return down;
-    }
-
-    public void setDown(Node down) {
-        this.down = down;
-    }
-
-    public Node getLeft() {
-        return left;
-    }
-
-    public void setLeft(Node left) {
-        this.left = left;
+    public void setNeighbors(ArrayList<Node> neighbors) {
+        this.neighbors = neighbors;
     }
     
     /**

@@ -57,18 +57,28 @@ public class AStar {
         
         // Adding to all nodes their neighbors
         for(Node n : Scost.keySet()){
+            ArrayList<Node> l = new ArrayList<>();
             if(n.getY() != 0){
-                n.setUp(nodes[n.getY()-1][n.getX()]);
+                if((nodes[n.getY()-1][n.getX()]) != null){
+                    l.add(nodes[n.getY()-1][n.getX()]);
+                }
             }
             if(n.getX() != map[0].length-1){
-                n.setRight(nodes[n.getY()][n.getX()+1]);
+                if((nodes[n.getY()][n.getX()+1]) != null){
+                    l.add(nodes[n.getY()][n.getX()+1]);
+                }
             }
             if(n.getY() != map.length-1){
-                n.setDown(nodes[n.getY()+1][n.getX()]);
+                if((nodes[n.getY()+1][n.getX()]) != null){
+                    l.add(nodes[n.getY()+1][n.getX()]);
+                }
             }
             if(n.getX() != 0){
-                n.setLeft(nodes[n.getY()][n.getX()-1]);
+                if((nodes[n.getY()][n.getX()-1]) != null){
+                    l.add(nodes[n.getY()][n.getX()-1]);
+                }
             }
+            n.setNeighbors(l);
         }
 
         while(!open.isEmpty()){
@@ -80,21 +90,8 @@ public class AStar {
             
             closed.add(current);
             
-            ArrayList<Node> neighbors = new ArrayList<>();
-            if(current.getUp() != null){
-                neighbors.add(current.getUp());
-            }
-            if(current.getRight()!= null){
-                neighbors.add(current.getRight());
-            }
-            if(current.getDown()!= null){
-                neighbors.add(current.getDown());
-            }
-            if(current.getLeft()!= null){
-                neighbors.add(current.getLeft());
-            }
             
-            for (Node n : neighbors){
+            for (Node n : current.getNeighbors()){
                 if(closed.contains(n)){     //Ignore already found nodes
                     continue;
                 }
