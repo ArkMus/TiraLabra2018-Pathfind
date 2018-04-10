@@ -23,9 +23,9 @@ public class AStar implements PathFinder {
         //Map containing the best path from one node to another
         HashMap<Node, Node> cameFrom = new HashMap<>();
         //The cost from the start to a node (initially all are infinity except start to start which is 0)
-        HashMap<Node, Integer> Scost = new HashMap<>();
+        HashMap<Node, Integer> startCost = new HashMap<>();
         //The cost from start to end, by passing a certain node (initially all are infinity except start that is estimated heuristically)
-        HashMap<Node, Integer> Ecost = new HashMap<>();
+        HashMap<Node, Integer> endCost = new HashMap<>();
         //List containing all the neighbors to a node
         Node[][] nodes = new Node[map.length][map[0].length];
 
@@ -38,70 +38,70 @@ public class AStar implements PathFinder {
                 Node current = new Node(x, y, 1);
                 nodes[y][x] = current;
                 if (current.equal(start)) {
-                    Scost.put(current, 0);
-                    Ecost.put(current, ManhattanDistance(current, end));
+                    startCost.put(current, 0);
+                    endCost.put(current, ManhattanDistance(current, end));
                     open.add(current);
                 } else {
-                    Scost.put(current, Integer.MAX_VALUE);      //Initialize Scost
-                    Ecost.put(current, Integer.MAX_VALUE);      //Initialize Ecost
+                    startCost.put(current, Integer.MAX_VALUE);      //Initialize Scost
+                    endCost.put(current, Integer.MAX_VALUE);      //Initialize Ecost
                 }
             }
         }
 
         // Adding to all nodes their neighbors
-        for (Node n : Scost.keySet()) {
+        for (Node node : startCost.keySet()) {
             ArrayList<Node> l = new ArrayList<>();
-            if (n.getY() != 0) {
-                if ((nodes[n.getY() - 1][n.getX()]) != null) {
-                    l.add(nodes[n.getY() - 1][n.getX()]);
+            if (node.getY() != 0) {
+                if ((nodes[node.getY() - 1][node.getX()]) != null) {
+                    l.add(nodes[node.getY() - 1][node.getX()]);
                 }
             }
-            if (n.getX() != map[0].length - 1) {
-                if ((nodes[n.getY()][n.getX() + 1]) != null) {
-                    l.add(nodes[n.getY()][n.getX() + 1]);
+            if (node.getX() != map[0].length - 1) {
+                if ((nodes[node.getY()][node.getX() + 1]) != null) {
+                    l.add(nodes[node.getY()][node.getX() + 1]);
                 }
             }
-            if (n.getY() != map.length - 1) {
-                if ((nodes[n.getY() + 1][n.getX()]) != null) {
-                    l.add(nodes[n.getY() + 1][n.getX()]);
+            if (node.getY() != map.length - 1) {
+                if ((nodes[node.getY() + 1][node.getX()]) != null) {
+                    l.add(nodes[node.getY() + 1][node.getX()]);
                 }
             }
-            if (n.getX() != 0) {
-                if ((nodes[n.getY()][n.getX() - 1]) != null) {
-                    l.add(nodes[n.getY()][n.getX() - 1]);
+            if (node.getX() != 0) {
+                if ((nodes[node.getY()][node.getX() - 1]) != null) {
+                    l.add(nodes[node.getY()][node.getX() - 1]);
                 }
             }
-            n.setNeighbors(l);
+            node.setNeighbors(l);
         }
 
         while (!open.isEmpty()) {
             Node current = open.poll();
             if (current.equal(end)) {
                 System.out.println("The shortest path is: " + reconstructPath(cameFrom, current, start));
-                return Scost.get(current);
+                return startCost.get(current);
             }
 
             closed.add(current);
 
-            for (Node n : current.getNeighbors()) {
-                if (closed.contains(n)) {     //Ignore already found nodes
+            for (Node neighbor : current.getNeighbors()) {
+                if (closed.contains(neighbor)) {     //Ignore already found nodes
                     continue;
                 }
 
-                if (!open.contains(n)) {      //New node found
-                    open.add(n);
+                if (!open.contains(neighbor)) {      //New node found
+                    open.add(neighbor);
                 }
 
-                int estimatedScost = Scost.get(current) + n.getCost();      //Cost from start to neighbor
+                int estimatedScost = startCost.get(current) + neighbor.getCost();      //Cost from start to neighbor
 
-                if (estimatedScost >= Scost.get(n)) {
+                if (estimatedScost >= startCost.get(neighbor)) {
                     continue;       //This is not a better path
                 }
 
                 //This is path is better, so we add it to cameFrom
-                cameFrom.put(n, current);
-                Scost.put(n, estimatedScost);
-                Ecost.put(n, Scost.get(n) + ManhattanDistance(n, end));
+                cameFrom.put(neighbor, current);
+                startCost.put(neighbor, estimatedScost);
+                endCost.put(neighbor, startCost.get(neighbor) + ManhattanDistance(neighbor, end));
             }
         }
 
@@ -117,7 +117,7 @@ public class AStar implements PathFinder {
      * @param start The start node
      * @return
      */
-    private ArrayList<Node> reconstructPath(HashMap<Node, Node> cameFrom, Node current, Node start) {
+    ArrayList<Node> reconstructPath(HashMap<Node, Node> cameFrom, Node current, Node start) {
         ArrayList<Node> path = new ArrayList<>();
         while (!current.equal(start)) {
             path.add(current);
@@ -136,7 +136,7 @@ public class AStar implements PathFinder {
      * @param b The end node
      * @return
      */
-    private int ManhattanDistance(Node a, Node b) {
+    int ManhattanDistance(Node a, Node b) {
         return (Math.abs(a.getX() - b.getX()) + Math.abs(a.getY() - b.getY()));
     }
 

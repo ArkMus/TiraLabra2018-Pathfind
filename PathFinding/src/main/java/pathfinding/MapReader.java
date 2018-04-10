@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class MapReader {
 
-    private String fileName;
+    private final String fileName;
 
     public MapReader(String fileName) {
         this.fileName = fileName;
@@ -19,10 +19,11 @@ public class MapReader {
         char[][] map = new char[1][1];
         int ix = 0;
 
+        BufferedReader buffreader = null;
         try {
-            String line = "";
+            String line;
             FileReader input = new FileReader(fileName);
-            BufferedReader buffreader = new BufferedReader(input);
+            buffreader = new BufferedReader(input);
 
             while ((line = buffreader.readLine()) != null) {
                 if (line.contains("height")) {
@@ -40,13 +41,18 @@ public class MapReader {
                 }
             }
 
-            buffreader.close();
         } catch (FileNotFoundException e) {
-            System.out.println("Could not find file " + fileName + "!");
+            System.out.println("Could not find file " + fileName + "! " + e.getMessage());
         } catch (IOException e) {
-            System.out.println("Error reading file " + fileName + ".");
+            System.out.println("Error reading file " + fileName + ". " + e.getMessage());
         }
-
+        if (buffreader != null) {
+            try {
+                buffreader.close();
+            } catch (IOException ex) {
+                System.out.println("Error closing buffreader: " + ex.getMessage());
+            }
+        }
         return map;
     }
 }

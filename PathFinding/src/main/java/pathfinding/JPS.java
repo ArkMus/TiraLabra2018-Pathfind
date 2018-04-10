@@ -23,9 +23,9 @@ public class JPS implements PathFinder {
         //Map containing the best path from one node to another
         HashMap<Node, Node> cameFrom = new HashMap<>();
         //The cost from the start to a node (initially all are infinity except start to start which is 0)
-        HashMap<Node, Integer> Scost = new HashMap<>();
+        HashMap<Node, Integer> startCost = new HashMap<>();
         //The cost from start to end, by passing a certain node (initially all are infinity except start that is estimated heuristically)
-        HashMap<Node, Integer> Ecost = new HashMap<>();
+        HashMap<Node, Integer> endCost = new HashMap<>();
         //List containing all the neighbors to a node
         Node[][] nodes = new Node[map.length][map[0].length];
 
@@ -38,18 +38,18 @@ public class JPS implements PathFinder {
                 Node current = new Node(x, y, 1);
                 nodes[y][x] = current;
                 if (current.equal(start)) {
-                    Scost.put(current, 0);
-                    Ecost.put(current, ManhattanDistance(current, end));
+                    startCost.put(current, 0);
+                    endCost.put(current, ManhattanDistance(current, end));
                     open.add(current);
                 } else {
-                    Scost.put(current, Integer.MAX_VALUE);      //Initialize Scost
-                    Ecost.put(current, Integer.MAX_VALUE);      //Initialize Ecost
+                    startCost.put(current, Integer.MAX_VALUE);      //Initialize Scost
+                    endCost.put(current, Integer.MAX_VALUE);      //Initialize Ecost
                 }
             }
         }
 
         // Adding to all nodes their neighbors
-        for (Node n : Scost.keySet()) {
+        for (Node n : startCost.keySet()) {
             Node l = FindNeighbors(n, cameFrom, nodes);
             n = l;
         }
@@ -59,12 +59,12 @@ public class JPS implements PathFinder {
 
             if (current.equal(end)) {
                 System.out.println("The shortest path is: " + reconstructPath(cameFrom, current, start));
-                return Scost.get(current);
+                return startCost.get(current);
             }
 
             closed.add(current);
             //Add all nodes that will possibly be searched
-            identifySuccessors(current, end, open, closed, nodes, cameFrom, Scost, Ecost);
+            identifySuccessors(current, end, open, closed, nodes, cameFrom, startCost, endCost);
 
         }
 
