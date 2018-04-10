@@ -5,11 +5,11 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Map_reader {
+public class MapReader {
 
-    String fileName;
+    private String fileName;
 
-    public Map_reader(String fileName) {
+    public MapReader(String fileName) {
         this.fileName = fileName;
     }
 

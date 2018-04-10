@@ -40,7 +40,7 @@ public class AStarTest {
      */
     @Test
     public void testFind() {
-        Map_reader mp = new Map_reader("/home/markusan/uniprojects/TiraLab/TiraLabra2018-Pathfind/PathFinding/src/test/java/pathfinding/test.map");
+        MapReader mp = new MapReader("/home/markusan/uniprojects/TiraLab/TiraLabra2018-Pathfind/PathFinding/src/test/java/pathfinding/test.map");
         char[][] map = mp.generateMap();
         AStar ASTAR = new AStar(map);
         Node start = new Node(0, 6, 1);
@@ -54,7 +54,7 @@ public class AStarTest {
      */
     @Test
     public void testReconstructPath() {
-        Map_reader mp = new Map_reader("/home/markusan/uniprojects/TiraLab/TiraLabra2018-Pathfind/PathFinding/src/test/java/pathfinding/test2.map");
+        MapReader mp = new MapReader("/home/markusan/uniprojects/TiraLab/TiraLabra2018-Pathfind/PathFinding/src/test/java/pathfinding/test2.map");
         char[][] map = mp.generateMap();
         AStar tstar = new AStar(map);
         Node start = new Node(0, 0, 1);

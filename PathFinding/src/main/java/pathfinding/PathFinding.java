@@ -4,7 +4,7 @@ package pathfinding;
 public class PathFinding {
 
     public static void main(String[] args) {
-        Map_reader mr = new Map_reader("/home/markusan/uniprojects/TiraLab/TiraLabra2018-Pathfind/PathFinding/src/main/java/pathfinding/Maps/test.map");
+        MapReader mr = new MapReader("/home/markusan/uniprojects/TiraLab/TiraLabra2018-Pathfind/PathFinding/src/main/java/pathfinding/Maps/test.map");
         char[][] map = mr.generateMap();
         AStar astar = new AStar(map);
         JPS jps = new JPS(map);
@@ -18,7 +18,7 @@ public class PathFinding {
             System.out.println("and it's " + anwser + " steps long");
         }
 
-//        Map_reader mr = new Map_reader("/home/markusan/uniprojects/TiraLab/TiraLabra2018-Pathfind/PathFinding/src/main/java/pathfinding/Maps/test.map");
+//        MapReader mr = new MapReader("/home/markusan/uniprojects/TiraLab/TiraLabra2018-Pathfind/PathFinding/src/main/java/pathfinding/Maps/test.map");
 //        char[][] map = mr.generateMap();
 //        
 //        for(char[] c : map){

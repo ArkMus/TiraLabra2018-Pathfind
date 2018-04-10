@@ -34,12 +34,12 @@ public class Map_readerTest {
     }
 
     /**
-     * Test of generateMap method, of class Map_reader.
+     * Test of generateMap method, of class MapReader.
      */
     @Test
     public void testGenerateMap() {
         System.out.println("generateMap");
-        Map_reader tmr = new Map_reader("/home/markusan/uniprojects/TiraLab/TiraLabra2018-Pathfind/PathFinding/src/test/java/pathfinding/test2.map");
+        MapReader tmr = new MapReader("/home/markusan/uniprojects/TiraLab/TiraLabra2018-Pathfind/PathFinding/src/test/java/pathfinding/test2.map");
         char[][] expResult = {
         {'.','.','.'},
         {'.','.','.'},
