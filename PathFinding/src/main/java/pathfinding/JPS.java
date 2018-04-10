@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.PriorityQueue;
 
-public class JPS {
+public class JPS implements PathFinder {
 
     private char[][] map;
 
@@ -14,14 +14,7 @@ public class JPS {
         this.map = map;
     }
 
-    /**
-     * The main algorithm. First it initializes all nodes and neighbors. Then
-     * does A* logic (template provided by wikipedia).
-     *
-     * @param start The node where the search starts from
-     * @param end The node that is the destination
-     * @return
-     */
+    @Override
     public int find(Node start, Node end) {
         //Nodes already evaluated
         HashSet<Node> closed = new HashSet<>();
@@ -87,7 +80,7 @@ public class JPS {
      * @param start The start node
      * @return
      */
-    public ArrayList<Node> reconstructPath(HashMap<Node, Node> cameFrom, Node current, Node start) {
+    private ArrayList<Node> reconstructPath(HashMap<Node, Node> cameFrom, Node current, Node start) {
         ArrayList<Node> path = new ArrayList<>();
         while (!current.equal(start)) {
             path.add(current);
@@ -106,7 +99,7 @@ public class JPS {
      * @param b The end node
      * @return
      */
-    public int ManhattanDistance(Node a, Node b) {
+    private int ManhattanDistance(Node a, Node b) {
         return (Math.abs(a.getX() - b.getX()) + Math.abs(a.getY() - b.getY()));
     }
 
@@ -119,7 +112,7 @@ public class JPS {
      * @param nodes
      * @return
      */
-    public Node FindNeighbors(Node n, HashMap<Node, Node> cameFrom, Node[][] nodes) {
+    private Node FindNeighbors(Node n, HashMap<Node, Node> cameFrom, Node[][] nodes) {
         Node parent = cameFrom.get(n);
         ArrayList<Node> l = new ArrayList<>();
 
@@ -192,7 +185,7 @@ public class JPS {
      * @param nodes
      * @return
      */
-    public Node Jump(Node neighbor, Node current, Node end, Node[][] nodes) {
+    private Node Jump(Node neighbor, Node current, Node end, Node[][] nodes) {
         if (neighbor == end) {
             return neighbor;
         }
@@ -237,7 +230,7 @@ public class JPS {
         return null;
     }
 
-    public void identifySuccessors(Node current, Node end, PriorityQueue<Node> open, HashSet<Node> closed, Node[][] nodes,
+    private void identifySuccessors(Node current, Node end, PriorityQueue<Node> open, HashSet<Node> closed, Node[][] nodes,
             HashMap<Node, Node> cameFrom, HashMap<Node, Integer> Scost, HashMap<Node, Integer> Ecost) {
 
         int ed = 0; //Estimated distance

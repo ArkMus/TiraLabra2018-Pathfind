@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.PriorityQueue;
 
-public class AStar {
+public class AStar implements PathFinder {
 
     private char[][] map;
 
@@ -14,14 +14,7 @@ public class AStar {
         this.map = map;
     }
 
-    /**
-     * The main algorithm. First it initializes all nodes and neighbors. Then
-     * does A* logic (template provided by wikipedia).
-     *
-     * @param start The node where the search starts from
-     * @param end The node that is the destination
-     * @return
-     */
+    @Override
     public int find(Node start, Node end) {
         //Nodes already evaluated
         HashSet<Node> closed = new HashSet<>();
@@ -124,7 +117,7 @@ public class AStar {
      * @param start The start node
      * @return
      */
-    public ArrayList<Node> reconstructPath(HashMap<Node, Node> cameFrom, Node current, Node start) {
+    private ArrayList<Node> reconstructPath(HashMap<Node, Node> cameFrom, Node current, Node start) {
         ArrayList<Node> path = new ArrayList<>();
         while (!current.equal(start)) {
             path.add(current);
@@ -143,7 +136,7 @@ public class AStar {
      * @param b The end node
      * @return
      */
-    public int ManhattanDistance(Node a, Node b) {
+    private int ManhattanDistance(Node a, Node b) {
         return (Math.abs(a.getX() - b.getX()) + Math.abs(a.getY() - b.getY()));
     }
 
