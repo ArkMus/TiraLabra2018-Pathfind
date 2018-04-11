@@ -185,9 +185,13 @@ public class JPS implements PathFinder {
      * @param nodes
      * @return
      */
-    private Node Jump(Node neighbor, Node current, Node end, Node[][] nodes) {
+    private Node Jump(int NeighborY, int NeighborX, Node current, Node end, Node[][] nodes) {
+        if(!isWalkable(NeighborX, NeighborY, nodes)){
+            return null;
+        }
+        Node neighbor = nodes[NeighborY][NeighborX];
         
-        if (neighbor == end) {
+        if (neighbor.equal(end)) {
             return neighbor;
         }
         
@@ -212,9 +216,9 @@ public class JPS implements PathFinder {
                 return neighbor;
             }
             // when moving vertically check for horizontal jump points
-            if (Jump(nodes[neighbor.getY()][neighbor.getX() + 1], neighbor, end, nodes) != null ||
-                    Jump(nodes[neighbor.getY()][neighbor.getX() - 1], neighbor, end, nodes) != null) {
-                return neighbor;
+            if(Jump(neighbor.getY(), neighbor.getX() + 1, neighbor, end, nodes) != null ||
+                    Jump(neighbor.getY(), neighbor.getX() - 1, neighbor, end, nodes) != null){
+                    return neighbor;
             }
             
         } else {
@@ -222,7 +226,7 @@ public class JPS implements PathFinder {
         }
                 
         
-        return Jump(nodes[neighbor.getY() + dy][neighbor.getX() + dx], neighbor, end, nodes);
+        return Jump(neighbor.getY() + dy, neighbor.getX() + dx, neighbor, end, nodes);
     }
 
     private void identifySuccessors(Node current, Node end, PriorityQueue<Node> open, HashSet<Node> closed, Node[][] nodes,
@@ -232,7 +236,7 @@ public class JPS implements PathFinder {
         int ds = 0; // Distance to end
 
         for (Node neighbor : current.getNeighbors()) {
-            Node jnode = Jump(neighbor, current, end, nodes);
+            Node jnode = Jump(neighbor.getY(), neighbor.getX(), current, end, nodes);
 
             if (jnode == null || closed.contains(jnode)) {
                 continue;
@@ -261,6 +265,12 @@ public class JPS implements PathFinder {
             return false;
         }
         if(y >= nodes.length){
+            return false;
+        }
+        if(x < 0){
+            return false;
+        }
+        if(y < 0){
             return false;
         }
         if(nodes[y][x] == null){

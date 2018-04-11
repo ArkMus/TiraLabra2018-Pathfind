@@ -4,14 +4,14 @@ package pathfinding;
 public class PathFinding {
 
     public static void main(String[] args) {
-        MapReader mr = new MapReader("/home/markusan/uniprojects/TiraLab/TiraLabra2018-Pathfind/PathFinding/src/main/java/pathfinding/Maps/test.map");
+        MapReader mr = new MapReader("/home/markusan/uniprojects/TiraLab/TiraLabra2018-Pathfind/PathFinding/src/main/java/pathfinding/Maps/test2.map");
         char[][] map = mr.generateMap();
         AStar astar = new AStar(map);
         JPS jps = new JPS(map);
-        Node start = new Node(6, 0, 1);
-        Node end = new Node(0, 6, 1);
-        int anwser = astar.find(start, end);
-//        int anwser = jps.find(start, end);
+        Node start = new Node(0, 0, 1);
+        Node end = new Node(18, 12, 1);
+//        int anwser = astar.find(start, end);
+        int anwser = jps.find(start, end);
         if (anwser == -1) {
             System.out.println("ERROR, didn't find path...RIP");
         } else {
