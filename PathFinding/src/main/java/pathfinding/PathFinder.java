@@ -12,8 +12,9 @@ package pathfinding;
 public interface PathFinder {
     
     /**
-     * The main algorithm. First it initializes all nodes and neighbors. Then
-     * does A* logic (template provided by wikipedia).
+     * The main algorithm. First it initializes all nodes and neighbors. Then it
+     * does pathfinding logic. The method will stop when it finds the goal node,
+     * or if it fails to find the goal node.
      *
      * @param start The node where the search starts from
      * @param end The node that is the destination

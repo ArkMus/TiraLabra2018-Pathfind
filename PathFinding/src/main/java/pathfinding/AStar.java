@@ -129,8 +129,8 @@ public class AStar implements PathFinder {
     }
 
     /**
-     * Calculating Heuristic distance. By using the ManhattanDistance(Taxicab
-     * geometry) calculates the "shortest" distance from one node to another.
+     * Calculating Heuristic distance. By using ManhattanDistance(Taxicab
+     * geometry) this method calculates the "shortest" distance from one node to another.
      *
      * @param a The start node
      * @param b The end node

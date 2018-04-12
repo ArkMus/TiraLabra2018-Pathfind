@@ -80,7 +80,7 @@ public class JPS implements PathFinder {
      * @param start The start node
      * @return
      */
-    private ArrayList<Node> reconstructPath(HashMap<Node, Node> cameFrom, Node current, Node start) {
+    public ArrayList<Node> reconstructPath(HashMap<Node, Node> cameFrom, Node current, Node start) {
         ArrayList<Node> path = new ArrayList<>();
         while (!current.equal(start)) {
             path.add(current);
@@ -92,14 +92,14 @@ public class JPS implements PathFinder {
     }
 
     /**
-     * Calculating Heuristic distance. By using the ManhattanDistance(Taxicab
-     * geometry) calculates the "shortest" distance from one node to another.
+     * Calculating Heuristic distance. By using ManhattanDistance(Taxicab
+     * geometry) this method calculates the "shortest" distance from one node to another.
      *
      * @param a The start node
      * @param b The end node
      * @return
      */
-    private int ManhattanDistance(Node a, Node b) {
+    public int ManhattanDistance(Node a, Node b) {
         return (Math.abs(a.getX() - b.getX()) + Math.abs(a.getY() - b.getY()));
     }
 
@@ -112,7 +112,7 @@ public class JPS implements PathFinder {
      * @param nodes
      * @return
      */
-    private Node FindNeighbors(Node n, HashMap<Node, Node> cameFrom, Node[][] nodes) {
+    public Node FindNeighbors(Node n, HashMap<Node, Node> cameFrom, Node[][] nodes) {
         Node parent = cameFrom.get(n);
         ArrayList<Node> l = new ArrayList<>();
 
@@ -185,7 +185,7 @@ public class JPS implements PathFinder {
      * @param nodes
      * @return
      */
-    private Node Jump(int NeighborY, int NeighborX, Node current, Node end, Node[][] nodes) {
+    public Node Jump(int NeighborY, int NeighborX, Node current, Node end, Node[][] nodes) {
         if(!isWalkable(NeighborX, NeighborY, nodes)){
             return null;
         }
@@ -228,8 +228,20 @@ public class JPS implements PathFinder {
         
         return Jump(neighbor.getY() + dy, neighbor.getX() + dx, neighbor, end, nodes);
     }
-
-    private void identifySuccessors(Node current, Node end, PriorityQueue<Node> open, HashSet<Node> closed, Node[][] nodes,
+    
+    /**
+     * Finding the successors. The method will determine which nodes will be 
+     * explored next.
+     * @param current
+     * @param end
+     * @param open
+     * @param closed
+     * @param nodes
+     * @param cameFrom
+     * @param Scost
+     * @param Ecost 
+     */
+    public void identifySuccessors(Node current, Node end, PriorityQueue<Node> open, HashSet<Node> closed, Node[][] nodes,
             HashMap<Node, Node> cameFrom, HashMap<Node, Integer> Scost, HashMap<Node, Integer> Ecost) {
 
         int ed = 0; //Estimated distance
@@ -260,6 +272,14 @@ public class JPS implements PathFinder {
 
     }
     
+    /**
+     * Checks if the given node is walkable. Determining a node with the x and y coordinates,
+     * this method will check if that node is out of range or if it is a obstacle.
+     * @param x
+     * @param y
+     * @param nodes
+     * @return 
+     */
     public boolean isWalkable(int x, int y, Node[][] nodes){
         if(x >= nodes[0].length){
             return false;

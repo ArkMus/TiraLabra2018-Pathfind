@@ -46,7 +46,14 @@ public class AStarTest {
         Node start = new Node(0, 6, 1);
         Node end = new Node(6, 0, 1);
         int anwser = ASTAR.find(start, end);
+        
+        MapReader mp2 = new MapReader("/home/markusan/uniprojects/TiraLab/TiraLabra2018-Pathfind/PathFinding/src/test/java/pathfinding/wall.map");
+        char[][] map2 = mp2.generateMap();
+        AStar ASTAR2 = new AStar(map2);
+        int anwser2 = ASTAR2.find(start, end);
+        
         assertEquals(12, anwser);
+        assertEquals(-1, anwser2);
     }
 
     /**

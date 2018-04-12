@@ -18,15 +18,7 @@ public class PathFinding {
             System.out.println("and it's " + anwser + " steps long");
         }
 
-//        MapReader mr = new MapReader("/home/markusan/uniprojects/TiraLab/TiraLabra2018-Pathfind/PathFinding/src/main/java/pathfinding/Maps/test.map");
-//        char[][] map = mr.generateMap();
-//        
-//        for(char[] c : map){
-//            for(int i = 0; i < c.length; i++){
-//                System.out.print(c[i]);
-//            }
-//            System.out.println("");
-//        }
+
     }
 
 }
