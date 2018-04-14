@@ -50,8 +50,7 @@ public class JPS implements PathFinder {
 
         // Adding to all nodes their neighbors
         for (Node n : startCost.keySet()) {
-            Node l = FindNeighbors(n, cameFrom, nodes);
-            n = l;
+            n = FindNeighbors(n, cameFrom, nodes);
         }
 
         while (!open.isEmpty()) {

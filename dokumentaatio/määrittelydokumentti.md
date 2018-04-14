@@ -26,12 +26,12 @@ syötteen teksti muodossa.
 
 ### A* ja Jump Point Search
 Aikavaativuus on sama kuin Dijkstralla, mutta se riippuu mitä heuristiikkaa käyttää. Tässä tapauksessa käytän priority queue:tä, niin
-pahimman tapauksen aikavaativuus on: O(|E| + |V|log|V|), missä E on "edges" ja V on "vertices". 
+pahimman tapauksen aikavaativuus on: O(|E| + |V|log|V|), missä E on "kaaret" ja V on "solmut". 
 
-Pahimman tapauksen tilavaativuus: O(V²), missä V on "vertices".
+Pahimman tapauksen tilavaativuus: O(|E| + |V|log|V|), missä V on "solmut".
 
 
 ## Lähteet
 
-Aika vaativuudet ja tilavaativuudet:
 https://en.wikipedia.org/wiki/A*_search_algorithm
+http://users.cecs.anu.edu.au/~dharabor/data/papers/harabor-grastien-aaai11.pdf
