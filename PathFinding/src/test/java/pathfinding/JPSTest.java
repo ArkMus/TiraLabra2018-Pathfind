@@ -37,14 +37,14 @@ public class JPSTest {
      */
     @Test
     public void testFind() {
-        MapReader mp = new MapReader("/home/markusan/uniprojects/TiraLab/TiraLabra2018-Pathfind/PathFinding/src/test/java/pathfinding/test.map");
+        MapReader mp = new MapReader("src/test/java/pathfinding/test.map");
         char[][] map = mp.generateMap();
         JPS jps1 = new JPS(map);
         Node start = new Node(0, 6, 1);
         Node end = new Node(6, 0, 1);
         int anwser = jps1.find(start, end);
         
-        MapReader mp2 = new MapReader("/home/markusan/uniprojects/TiraLab/TiraLabra2018-Pathfind/PathFinding/src/test/java/pathfinding/wall.map");
+        MapReader mp2 = new MapReader("src/test/java/pathfinding/wall.map");
         char[][] map2 = mp2.generateMap();
         JPS jps2 = new JPS(map2);
         int anwser2 = jps2.find(start, end);
@@ -77,7 +77,7 @@ public class JPSTest {
     @Test
     public void testReconstructPath() {
         System.out.println("reconstructPath");
-        MapReader mp = new MapReader("/home/markusan/uniprojects/TiraLab/TiraLabra2018-Pathfind/PathFinding/src/test/java/pathfinding/test2.map");
+        MapReader mp = new MapReader("src/test/java/pathfinding/test2.map");
         char[][] map = mp.generateMap();
         AStar tstar = new AStar(map);
         Node start = new Node(0, 0, 1);

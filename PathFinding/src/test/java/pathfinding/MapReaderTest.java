@@ -38,7 +38,7 @@ public class MapReaderTest {
     @Test
     public void testGenerateMap() {
         System.out.println("generateMap");
-        MapReader tmr = new MapReader("/home/markusan/uniprojects/TiraLab/TiraLabra2018-Pathfind/PathFinding/src/test/java/pathfinding/test2.map");
+        MapReader tmr = new MapReader("src/test/java/pathfinding/test2.map");
         MapReader tmr2 = new MapReader("");
         char[][] expResult = {
         {'.','.','.'},

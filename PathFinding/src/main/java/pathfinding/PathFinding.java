@@ -1,10 +1,12 @@
 package pathfinding;
 // author Markus Andersson
 
+
+
 public class PathFinding {
 
     public static void main(String[] args) {
-        MapReader mr = new MapReader("/home/markusan/uniprojects/TiraLab/TiraLabra2018-Pathfind/PathFinding/src/main/java/pathfinding/Maps/test2.map");
+        MapReader mr = new MapReader("src/main/java/pathfinding/Maps/test2.map");
         char[][] map = mr.generateMap();
         AStar astar = new AStar(map);
         JPS jps = new JPS(map);
@@ -17,6 +19,7 @@ public class PathFinding {
         } else {
             System.out.println("and it's " + anwser + " steps long");
         }
+        
 
 
     }
