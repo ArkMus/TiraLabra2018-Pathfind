@@ -16,7 +16,8 @@ if (!hasProperty('mainClass')) {
 }
 
 repositories {
-    mavenCentral()
+	jcenter()
+    // mavenCentral()
     // You may define additional repositories, or even remove "mavenCentral()".
     // Read more about repositories here:
     //   http://www.gradle.org/docs/current/userguide/dependency_management.html#sec:repositories
@@ -35,7 +36,7 @@ targetCompatibility = 1.8
 jacocoTestReport {
     reports {
         xml.enabled = true
-        html.enabled = false
+        html.enabled = true
     }
 }
 
