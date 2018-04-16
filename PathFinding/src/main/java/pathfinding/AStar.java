@@ -9,9 +9,12 @@ import java.util.PriorityQueue;
 public class AStar implements PathFinder {
 
     private char[][] map;
+    public ArrayList<Node> rpath;
+    
 
     public AStar(char[][] map) {
         this.map = map;
+        this.rpath = new ArrayList<>();
     }
 
     @Override
@@ -77,7 +80,7 @@ public class AStar implements PathFinder {
         while (!open.isEmpty()) {
             Node current = open.poll();
             if (current.equal(end)) {
-                System.out.println("The shortest path is: " + reconstructPath(cameFrom, current, start));
+                reconstructPath(cameFrom, current, start);
                 return startCost.get(current);
             }
 
@@ -117,7 +120,7 @@ public class AStar implements PathFinder {
      * @param start The start node
      * @return
      */
-    ArrayList<Node> reconstructPath(HashMap<Node, Node> cameFrom, Node current, Node start) {
+    void reconstructPath(HashMap<Node, Node> cameFrom, Node current, Node start) {
         ArrayList<Node> path = new ArrayList<>();
         while (!current.equal(start)) {
             path.add(current);
@@ -125,7 +128,7 @@ public class AStar implements PathFinder {
         }
         path.add(start);
         Collections.reverse(path);
-        return path;
+        this.rpath = path;
     }
 
     /**

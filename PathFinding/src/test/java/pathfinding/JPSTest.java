@@ -102,8 +102,8 @@ public class JPSTest {
         tpath.add(n4);
         tpath.add(end);
         
-        
-        assertEquals(tpath, tstar.reconstructPath(cameFrom, end, start));
+        tstar.reconstructPath(cameFrom, end, start);
+        assertEquals(tpath, tstar.rpath);
     }
 
     /**

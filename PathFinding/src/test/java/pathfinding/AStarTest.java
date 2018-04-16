@@ -79,8 +79,8 @@ public class AStarTest {
         tpath.add(n4);
         tpath.add(end);
         
-        
-        assertEquals(tpath, tstar.reconstructPath(cameFrom, end, start));
+        tstar.reconstructPath(cameFrom, end, start);
+        assertEquals(tpath, tstar.rpath);
     }
     /**
      * Test of ManhattanDistance method, of class AStar.

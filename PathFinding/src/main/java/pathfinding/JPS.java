@@ -9,9 +9,12 @@ import java.util.PriorityQueue;
 public class JPS implements PathFinder {
 
     private char[][] map;
+    public ArrayList<Node> rpath;
 
     public JPS(char[][] map) {
         this.map = map;
+        this.rpath = new ArrayList<>();
+
     }
 
     @Override
@@ -57,7 +60,7 @@ public class JPS implements PathFinder {
             Node current = open.poll();
 
             if (current.equal(end)) {
-                System.out.println("The shortest path is: " + reconstructPath(cameFrom, current, start));
+                reconstructPath(cameFrom, current, start);
                 return startCost.get(current);
             }
 
@@ -79,7 +82,7 @@ public class JPS implements PathFinder {
      * @param start The start node
      * @return
      */
-    public ArrayList<Node> reconstructPath(HashMap<Node, Node> cameFrom, Node current, Node start) {
+    void reconstructPath(HashMap<Node, Node> cameFrom, Node current, Node start) {
         ArrayList<Node> path = new ArrayList<>();
         while (!current.equal(start)) {
             path.add(current);
@@ -87,7 +90,7 @@ public class JPS implements PathFinder {
         }
         path.add(start);
         Collections.reverse(path);
-        return path;
+        this.rpath = path;
     }
 
     /**
