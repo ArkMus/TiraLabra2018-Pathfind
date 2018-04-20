@@ -53,28 +53,7 @@ public class AStar implements PathFinder {
 
         // Adding to all nodes their neighbors
         for (Node node : startCost.keySet()) {
-            ArrayList<Node> l = new ArrayList<>();
-            if (node.getY() != 0) {
-                if ((nodes[node.getY() - 1][node.getX()]) != null) {
-                    l.add(nodes[node.getY() - 1][node.getX()]);
-                }
-            }
-            if (node.getX() != map[0].length - 1) {
-                if ((nodes[node.getY()][node.getX() + 1]) != null) {
-                    l.add(nodes[node.getY()][node.getX() + 1]);
-                }
-            }
-            if (node.getY() != map.length - 1) {
-                if ((nodes[node.getY() + 1][node.getX()]) != null) {
-                    l.add(nodes[node.getY() + 1][node.getX()]);
-                }
-            }
-            if (node.getX() != 0) {
-                if ((nodes[node.getY()][node.getX() - 1]) != null) {
-                    l.add(nodes[node.getY()][node.getX() - 1]);
-                }
-            }
-            node.setNeighbors(l);
+            node = FindNeighbors(nodes, node);
         }
 
         while (!open.isEmpty()) {
@@ -120,7 +99,8 @@ public class AStar implements PathFinder {
      * @param start The start node
      * @return
      */
-    void reconstructPath(HashMap<Node, Node> cameFrom, Node current, Node start) {
+    @Override
+    public void reconstructPath(HashMap<Node, Node> cameFrom, Node current, Node start) {
         ArrayList<Node> path = new ArrayList<>();
         while (!current.equal(start)) {
             path.add(current);
@@ -139,8 +119,34 @@ public class AStar implements PathFinder {
      * @param b The end node
      * @return
      */
-    int ManhattanDistance(Node a, Node b) {
+    public int ManhattanDistance(Node a, Node b) {
         return (Math.abs(a.getX() - b.getX()) + Math.abs(a.getY() - b.getY()));
+    }
+    
+    public Node FindNeighbors(Node[][] nodes, Node node){
+        ArrayList<Node> l = new ArrayList<>();
+        if (node.getY() != 0) {
+            if ((nodes[node.getY() - 1][node.getX()]) != null) {
+                l.add(nodes[node.getY() - 1][node.getX()]);
+            }
+        }
+        if (node.getX() != map[0].length - 1) {
+            if ((nodes[node.getY()][node.getX() + 1]) != null) {
+                l.add(nodes[node.getY()][node.getX() + 1]);
+            }
+        }
+        if (node.getY() != map.length - 1) {
+            if ((nodes[node.getY() + 1][node.getX()]) != null) {
+                l.add(nodes[node.getY() + 1][node.getX()]);
+            }
+        }
+        if (node.getX() != 0) {
+            if ((nodes[node.getY()][node.getX() - 1]) != null) {
+                l.add(nodes[node.getY()][node.getX() - 1]);
+            }
+        }
+        node.setNeighbors(l);
+        return node;
     }
 
 }

@@ -82,7 +82,8 @@ public class JPS implements PathFinder {
      * @param start The start node
      * @return
      */
-    void reconstructPath(HashMap<Node, Node> cameFrom, Node current, Node start) {
+    @Override
+    public void reconstructPath(HashMap<Node, Node> cameFrom, Node current, Node start) {
         ArrayList<Node> path = new ArrayList<>();
         while (!current.equal(start)) {
             path.add(current);

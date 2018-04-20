@@ -5,6 +5,8 @@
  */
 package pathfinding;
 
+import java.util.HashMap;
+
 /**
  *
  * @author markusan
@@ -21,4 +23,9 @@ public interface PathFinder {
      * @return
      */
     public int find(Node start, Node end);
+    
+    public void reconstructPath(HashMap<Node, Node> cameFrom, Node current, Node start);
+    
+    public int ManhattanDistance(Node a, Node b);
+    
 }
