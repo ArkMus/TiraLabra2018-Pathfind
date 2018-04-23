@@ -1,7 +1,8 @@
 
 package pathfinding;
 
-import java.util.ArrayList;
+import pathfinding.DataStructures.ArrayList;
+
 
 public class Node implements Comparable<Node>{
     private int x;

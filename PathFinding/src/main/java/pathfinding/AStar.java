@@ -1,10 +1,11 @@
 package pathfinding;
 
-import java.util.ArrayList;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.PriorityQueue;
+import pathfinding.DataStructures.ArrayList;
 
 public class AStar implements PathFinder {
 
@@ -65,7 +66,8 @@ public class AStar implements PathFinder {
 
             closed.add(current);
 
-            for (Node neighbor : current.getNeighbors()) {
+            for (int i = 0; i < current.getNeighbors().size(); i++) {
+                Node neighbor = current.getNeighbors().get(i);
                 if (closed.contains(neighbor)) {     //Ignore already found nodes
                     continue;
                 }
@@ -107,7 +109,7 @@ public class AStar implements PathFinder {
             current = cameFrom.get(current);
         }
         path.add(start);
-        Collections.reverse(path);
+        path.reverse();
         this.rpath = path;
     }
 

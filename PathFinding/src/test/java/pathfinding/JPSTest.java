@@ -1,7 +1,7 @@
 
 package pathfinding;
 
-import java.util.ArrayList;
+import pathfinding.DataStructures.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -103,7 +103,11 @@ public class JPSTest {
         tpath.add(end);
         
         tstar.reconstructPath(cameFrom, end, start);
-        assertEquals(tpath, tstar.rpath);
+        assertEquals(tpath.get(0), tstar.rpath.get(0));
+        assertEquals(tpath.get(1), tstar.rpath.get(1));
+        assertEquals(tpath.get(2), tstar.rpath.get(2));
+        assertEquals(tpath.get(3), tstar.rpath.get(3));
+        assertEquals(tpath.get(4), tstar.rpath.get(4));
     }
 
     /**

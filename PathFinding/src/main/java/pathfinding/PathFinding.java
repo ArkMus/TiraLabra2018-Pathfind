@@ -1,13 +1,15 @@
 package pathfinding;
 // author Markus Andersson
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.Scanner;
+import pathfinding.DataStructures.ArrayList;
 
 
 public class PathFinding {
 
     public static void main(String[] args) throws InterruptedException{
+        
         Scanner sc = new Scanner(System.in);
         MapReader mr = new MapReader("src/main/java/pathfinding/Maps/test2.map");
         char[][] map = mr.generateMap();

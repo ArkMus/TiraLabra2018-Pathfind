@@ -1,6 +1,6 @@
 package pathfinding;
 
-import java.util.ArrayList;
+import pathfinding.DataStructures.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -90,7 +90,7 @@ public class JPS implements PathFinder {
             current = cameFrom.get(current);
         }
         path.add(start);
-        Collections.reverse(path);
+        path.reverse();
         this.rpath = path;
     }
 
@@ -250,7 +250,8 @@ public class JPS implements PathFinder {
         int ed = 0; //Estimated distance
         int ds = 0; // Distance to end
 
-        for (Node neighbor : current.getNeighbors()) {
+        for (int i = 0; i < current.getNeighbors().size(); i++) {
+            Node neighbor = current.getNeighbors().get(i);
             Node jnode = Jump(neighbor.getY(), neighbor.getX(), current, end, nodes);
 
             if (jnode == null || closed.contains(jnode)) {
