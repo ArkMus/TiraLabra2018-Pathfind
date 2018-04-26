@@ -1,8 +1,7 @@
 package pathfinding;
 
 import pathfinding.DataStructures.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
+import pathfinding.DataStructures.HashMap;
 import java.util.HashSet;
 import java.util.PriorityQueue;
 
@@ -52,8 +51,9 @@ public class JPS implements PathFinder {
         }
 
         // Adding to all nodes their neighbors
-        for (Node n : startCost.keySet()) {
-            n = FindNeighbors(n, cameFrom, nodes);
+        for (int i = 0; i < startCost.set.size(); i++) {
+            Node node = startCost.set.get(i);
+            node = FindNeighbors(node, cameFrom, nodes);
         }
 
         while (!open.isEmpty()) {

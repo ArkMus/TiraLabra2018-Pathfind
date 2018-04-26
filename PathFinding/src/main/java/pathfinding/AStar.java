@@ -1,10 +1,9 @@
 package pathfinding;
 
 
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.PriorityQueue;
+import pathfinding.DataStructures.HashMap;
 import pathfinding.DataStructures.ArrayList;
 
 public class AStar implements PathFinder {
@@ -53,7 +52,8 @@ public class AStar implements PathFinder {
         }
 
         // Adding to all nodes their neighbors
-        for (Node node : startCost.keySet()) {
+        for (int i = 0; i < startCost.set.size(); i++) {
+            Node node = startCost.set.get(i);
             node = FindNeighbors(nodes, node);
         }
 

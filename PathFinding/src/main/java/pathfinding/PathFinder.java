@@ -5,7 +5,7 @@
  */
 package pathfinding;
 
-import java.util.HashMap;
+import pathfinding.DataStructures.HashMap;
 
 /**
  *

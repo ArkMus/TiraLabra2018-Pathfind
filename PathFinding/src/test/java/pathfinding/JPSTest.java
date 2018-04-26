@@ -2,15 +2,11 @@
 package pathfinding;
 
 import pathfinding.DataStructures.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
+import pathfinding.DataStructures.HashMap;
 import java.util.HashSet;
 import java.util.PriorityQueue;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
