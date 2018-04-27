@@ -10,15 +10,20 @@ public class JPS implements PathFinder {
 
     private char[][] map;
     public ArrayList<Node> rpath;
+    public long aikaAlussa; 
+    public long aikaLopussa;
 
     public JPS(char[][] map) {
         this.map = map;
         this.rpath = new ArrayList<>();
+        aikaAlussa = 0; 
+        aikaLopussa = 0; 
 
     }
 
     @Override
     public int find(Node start, Node end) {
+        aikaAlussa = System.currentTimeMillis(); 
         //Nodes already evaluated
         HashSet<Node> closed = new HashSet<>();
         //Discovered nodes that have not been evaluated (initially only contains the start node)
@@ -62,6 +67,7 @@ public class JPS implements PathFinder {
 
             if (current.equal(end)) {
                 reconstructPath(cameFrom, current, start);
+                aikaLopussa = System.currentTimeMillis(); 
                 return startCost.get(current);
             }
 
@@ -70,7 +76,7 @@ public class JPS implements PathFinder {
             identifySuccessors(current, end, open, closed, nodes, cameFrom, startCost, endCost);
 
         }
-
+        aikaLopussa = System.currentTimeMillis(); 
         return -1;
     }
 

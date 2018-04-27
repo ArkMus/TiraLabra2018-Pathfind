@@ -5,5 +5,8 @@
 Projekti missä vertailen A* ja JPS pathfind algoritmejä
 
 [Määrittelydokumentti](https://github.com/ArkMus/TiraLabra2018-Pathfind/blob/master/dokumentaatio/m%C3%A4%C3%A4rittelydokumentti.md)
+
 [Testausdokumentti](https://github.com/ArkMus/TiraLabra2018-Pathfind/blob/master/dokumentaatio/Testausdokumentti.md)
+
+[Toteutusdokumentti](https://github.com/ArkMus/TiraLabra2018-Pathfind/blob/master/dokumentaatio/Toteutusdokumentti.md)
 

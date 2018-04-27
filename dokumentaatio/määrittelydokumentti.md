@@ -28,7 +28,7 @@ syötteen teksti muodossa.
 Aikavaativuus on sama kuin Dijkstralla, mutta se riippuu mitä heuristiikkaa käyttää. Tässä tapauksessa käytän priority queue:tä, niin
 pahimman tapauksen aikavaativuus on: O(|E| + |V|log|V|), missä E on "kaaret" ja V on "solmut". 
 
-Pahimman tapauksen tilavaativuus: O(|E| + |V|log|V|), missä V on "solmut".
+Pahimman tapauksen tilavaativuus: O(|E| + |V|log|V|), missä E on "kaaret" ja missä V on "solmut".
 
 
 ## Lähteet

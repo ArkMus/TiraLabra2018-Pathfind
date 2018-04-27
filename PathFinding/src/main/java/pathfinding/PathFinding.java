@@ -21,6 +21,9 @@ public class PathFinding {
         int anwser = 0;
         String input = "";
         ArrayList<Node> path = new ArrayList<>();
+        long aikaAlussa = 0;
+        long aikaLopussa = 0;
+        
         while(true){
             System.out.println("Which map would you like to use?\n"
                     + "For 'test.map' press 1\n"
@@ -48,11 +51,15 @@ public class PathFinding {
                 AStar astar = new AStar(map);
                 anwser = astar.find(start, end);
                 path = astar.rpath;
+                aikaAlussa = astar.aikaAlussa;
+                aikaLopussa = astar.aikaLopussa;
                 break;
             } else if (input.equals("2")) {
                 JPS jps = new JPS(map);
                 anwser = jps.find(start, end);
                 path = jps.rpath;
+                aikaAlussa = jps.aikaAlussa;
+                aikaLopussa = jps.aikaLopussa;
                 break;
             }else{
                 System.out.println("Please type 1 or 2!");
@@ -67,7 +74,7 @@ public class PathFinding {
             System.out.println(path);
             System.out.println("and it's " + anwser + " steps long");
         }
-
+        System.out.println("Operaatioon kului aikaa: " + (aikaLopussa - aikaAlussa) + "ms."); 
     }
 
 }
