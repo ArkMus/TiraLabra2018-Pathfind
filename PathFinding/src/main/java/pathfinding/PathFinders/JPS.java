@@ -37,6 +37,28 @@ public class JPS implements PathFinder {
         //List containing all the neighbors to a node
         Node[][] nodes = new Node[map.length][map[0].length];
 
+        initializeData(nodes, start, end, startCost, endCost, open, cameFrom);
+
+        while (!open.isEmpty()) {
+            Node current = open.poll();
+
+            if (current.equal(end)) {
+                reconstructPath(cameFrom, current, start);
+                aikaLopussa = System.currentTimeMillis(); 
+                return startCost.get(current);
+            }
+
+            closed.add(current);
+            //Add all nodes that will possibly be searched
+            identifySuccessors(current, end, open, closed, nodes, cameFrom, startCost, endCost);
+
+        }
+        aikaLopussa = System.currentTimeMillis(); 
+        return -1;
+    }
+    
+    private void initializeData(Node[][] nodes, Node start, Node end, HashMap<Node,
+        Integer> startCost, HashMap<Node, Integer> endCost, PriorityQueue<Node> open, HashMap<Node, Node> cameFrom){
         for (int y = 0; y < map.length; y++) {
             for (int x = 0; x < map[0].length; x++) {
                 if (map[y][x] == '@' || map[y][x] == 'O' || map[y][x] == 'T') {
@@ -61,23 +83,6 @@ public class JPS implements PathFinder {
             Node node = startCost.set.get(i);
             node = FindNeighbors(node, cameFrom, nodes);
         }
-
-        while (!open.isEmpty()) {
-            Node current = open.poll();
-
-            if (current.equal(end)) {
-                reconstructPath(cameFrom, current, start);
-                aikaLopussa = System.currentTimeMillis(); 
-                return startCost.get(current);
-            }
-
-            closed.add(current);
-            //Add all nodes that will possibly be searched
-            identifySuccessors(current, end, open, closed, nodes, cameFrom, startCost, endCost);
-
-        }
-        aikaLopussa = System.currentTimeMillis(); 
-        return -1;
     }
 
     /**

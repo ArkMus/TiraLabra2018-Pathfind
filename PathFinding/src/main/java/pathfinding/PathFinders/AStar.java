@@ -38,32 +38,9 @@ public class AStar implements PathFinder {
         HashMap<Node, Integer> endCost = new HashMap<>();
         //List containing all the neighbors to a node
         Node[][] nodes = new Node[map.length][map[0].length];
-
-        for (int y = 0; y < map.length; y++) {
-            for (int x = 0; x < map[0].length; x++) {
-                if (map[y][x] == '@' || map[y][x] == 'O' || map[y][x] == 'T') {
-                    continue;
-                }
-
-                Node current = new Node(x, y, 1);
-                nodes[y][x] = current;
-                if (current.equal(start)) {
-                    startCost.put(current, 0);
-                    endCost.put(current, ManhattanDistance(current, end));
-                    open.add(current);
-                } else {
-                    startCost.put(current, Integer.MAX_VALUE);      //Initialize Scost
-                    endCost.put(current, Integer.MAX_VALUE);      //Initialize Ecost
-                }
-            }
-        }
-
-        // Adding to all nodes their neighbors
-        for (int i = 0; i < startCost.set.size(); i++) {
-            Node node = startCost.set.get(i);
-            node = FindNeighbors(nodes, node);
-        }
-
+        
+        initializeData(nodes, start, end, startCost, endCost, open);
+        
         while (!open.isEmpty()) {
             Node current = open.poll();
             if (current.equal(end)) {
@@ -98,6 +75,34 @@ public class AStar implements PathFinder {
         }
         aikaLopussa = System.currentTimeMillis();
         return -1;
+    }
+    
+    private void initializeData(Node[][] nodes, Node start, Node end, HashMap<Node,
+        Integer> startCost, HashMap<Node, Integer> endCost, PriorityQueue<Node> open){
+        for (int y = 0; y < map.length; y++) {
+            for (int x = 0; x < map[0].length; x++) {
+                if (map[y][x] == '@' || map[y][x] == 'O' || map[y][x] == 'T') {
+                    continue;
+                }
+
+                Node current = new Node(x, y, 1);
+                nodes[y][x] = current;
+                if (current.equal(start)) {
+                    startCost.put(current, 0);
+                    endCost.put(current, ManhattanDistance(current, end));
+                    open.add(current);
+                } else {
+                    startCost.put(current, Integer.MAX_VALUE);      //Initialize Scost
+                    endCost.put(current, Integer.MAX_VALUE);      //Initialize Ecost
+                }
+            }
+        }
+
+        // Adding to all nodes their neighbors
+        for (int i = 0; i < startCost.set.size(); i++) {
+            Node node = startCost.set.get(i);
+            node = FindNeighbors(nodes, node);
+        }
     }
 
     /**
