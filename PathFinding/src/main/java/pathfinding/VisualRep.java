@@ -1,6 +1,7 @@
 
 package pathfinding;
 
+import pathfinding.DataStructures.Node;
 import pathfinding.DataStructures.ArrayList;
 import java.util.concurrent.TimeUnit;
 

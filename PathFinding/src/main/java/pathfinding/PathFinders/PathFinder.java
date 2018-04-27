@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pathfinding;
+package pathfinding.PathFinders;
 
 import pathfinding.DataStructures.HashMap;
+import pathfinding.DataStructures.Node;
 
 /**
  *

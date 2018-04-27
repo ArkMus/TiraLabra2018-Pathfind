@@ -1,6 +1,8 @@
 
 package pathfinding;
 
+import pathfinding.DataStructures.Node;
+import pathfinding.PathFinders.AStar;
 import pathfinding.DataStructures.ArrayList;
 import pathfinding.DataStructures.HashMap;
 import org.junit.After;

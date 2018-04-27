@@ -1,10 +1,11 @@
-package pathfinding;
+package pathfinding.PathFinders;
 
 
 import java.util.HashSet;
 import java.util.PriorityQueue;
 import pathfinding.DataStructures.HashMap;
 import pathfinding.DataStructures.ArrayList;
+import pathfinding.DataStructures.Node;
 
 public class AStar implements PathFinder {
 

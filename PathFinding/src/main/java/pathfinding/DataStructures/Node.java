@@ -1,5 +1,5 @@
 
-package pathfinding;
+package pathfinding.DataStructures;
 
 import pathfinding.DataStructures.ArrayList;
 

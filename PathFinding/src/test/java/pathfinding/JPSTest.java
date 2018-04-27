@@ -1,6 +1,9 @@
 
 package pathfinding;
 
+import pathfinding.DataStructures.Node;
+import pathfinding.PathFinders.AStar;
+import pathfinding.PathFinders.JPS;
 import pathfinding.DataStructures.ArrayList;
 import pathfinding.DataStructures.HashMap;
 import java.util.HashSet;

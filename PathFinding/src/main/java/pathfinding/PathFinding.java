@@ -1,6 +1,9 @@
 package pathfinding;
 // author Markus Andersson
 
+import pathfinding.DataStructures.Node;
+import pathfinding.PathFinders.AStar;
+import pathfinding.PathFinders.JPS;
 import java.util.Scanner;
 import pathfinding.DataStructures.ArrayList;
 import pathfinding.DataStructures.HashMap;
