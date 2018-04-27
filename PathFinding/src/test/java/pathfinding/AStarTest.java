@@ -99,7 +99,7 @@ public class AStarTest {
         Node a1 = new Node(7, 4, 1);
         Node b1 = new Node(4, 3, 1);
         assertEquals(4, tstar.ManhattanDistance(a, b));     //4-7 = -3 ,  3-4 = -1 ,   |-3| + |-1| = 4 
-        assertEquals(4, tstar.ManhattanDistance(a, b));     //7-4 = 3 ,  4-3 = 1 ,   3 + 1 = 4 
+        assertEquals(4, tstar.ManhattanDistance(a1, b1));     //7-4 = 3 ,  4-3 = 1 ,   3 + 1 = 4 
     }
     
 }

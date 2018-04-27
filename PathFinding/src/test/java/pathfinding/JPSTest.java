@@ -132,7 +132,8 @@ public class JPSTest {
     public void testFindNeighbors() {
         System.out.println("FindNeighbors");
         HashMap<Node, Node> cameFrom = new HashMap<>();
-        Node[][] nodes = {{new Node(0, 0, 0), new Node(1, 0, 0), new Node(0, 0, 0)},
+        Node[][] nodes = {
+        {new Node(0, 0, 0), new Node(1, 0, 0), new Node(0, 0, 0)},
         {new Node(0, 4, 0), new Node(0, 0, 0), new Node(2, 0, 0)},
         {new Node(0, 0, 0), new Node(0, 3, 0), new Node(0, 0, 0)}};
         char[][] map = new char[3][3];
@@ -152,17 +153,18 @@ public class JPSTest {
      */
     @Test
     public void testJump() {
-        //TODO Make a test for this
         System.out.println("Jump");
-        int NeighborY = 0;
-        int NeighborX = 0;
-        Node current = null;
-        Node end = null;
-        Node[][] nodes = null;
-        JPS instance = null;
-        Node expResult = null;
-//        Node result = instance.Jump(NeighborY, NeighborX, current, end, nodes);
-        assertEquals(true, true);
+        Node current = new Node(0, 0, 0);
+        Node end = new Node(2, 2, 0);
+        Node[][] nodes = {
+        {new Node(0, 0, 0), new Node(1, 0, 0), new Node(2, 0, 0)},
+        {new Node(1, 0, 0), new Node(1, 1, 0), new Node(1, 2, 0)},
+        {new Node(2, 0, 0), new Node(2, 1, 0), new Node(2, 2, 0)}};
+        char[][] map = new char[3][3];
+        JPS instance = new JPS(map);
+        Node result1 = instance.Jump(1, 1, current, end, nodes);
+        System.out.println("1 " + result1);
+        assertEquals(true, result1.equal(end));
     }
 
     /**
