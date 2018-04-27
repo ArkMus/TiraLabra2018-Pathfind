@@ -17,8 +17,13 @@
 * Vertaisarviointi tehty.
 * Projekti refaktoroitu.
 * Kirjoitin viikkoraporttia.
+* Testausdokumentti kirjoitettu.
+* Toteusdokumentti kirjoitettu.
+* Lisäsin AStar ja JPS uuden metodin "initializeData"
+* AStar ja JPS "find" nyt lyhyempi. 
+* Kirjoitin viikkoraporttia.
 
 #
 ## Käytetty aikaa tällä viikolla:
-~10 tuntia
+~12 tuntia
 
