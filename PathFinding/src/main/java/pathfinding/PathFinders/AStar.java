@@ -1,7 +1,7 @@
 package pathfinding.PathFinders;
 
 
-import java.util.HashSet;
+import pathfinding.DataStructures.HashSet;
 import java.util.PriorityQueue;
 import pathfinding.DataStructures.HashMap;
 import pathfinding.DataStructures.ArrayList;
