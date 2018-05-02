@@ -1,14 +1,17 @@
 
-package pathfinding;
+package pathfinding.PathFinders;
 
 import pathfinding.DataStructures.Node;
 import pathfinding.PathFinders.AStar;
 import pathfinding.DataStructures.ArrayList;
 import pathfinding.DataStructures.HashMap;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
+import pathfinding.MapReader;
 import static org.junit.Assert.*;
+import org.junit.BeforeClass;
 
 /**
  *
@@ -17,6 +20,14 @@ import static org.junit.Assert.*;
 public class AStarTest {
     
     public AStarTest() {
+    }
+
+    @BeforeClass
+    public static void setUpClass() throws Exception {
+    }
+
+    @AfterClass
+    public static void tearDownClass() throws Exception {
     }
 
     
@@ -104,3 +115,4 @@ public class AStarTest {
     }
     
 }
+ 

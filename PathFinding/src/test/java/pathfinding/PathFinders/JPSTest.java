@@ -1,9 +1,7 @@
 
-package pathfinding;
+package pathfinding.PathFinders;
 
 import pathfinding.DataStructures.Node;
-import pathfinding.PathFinders.AStar;
-import pathfinding.PathFinders.JPS;
 import pathfinding.DataStructures.ArrayList;
 import pathfinding.DataStructures.HashMap;
 import java.util.HashSet;
@@ -11,6 +9,7 @@ import java.util.PriorityQueue;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import pathfinding.MapReader;
 import static org.junit.Assert.*;
 
 /**
@@ -78,7 +77,7 @@ public class JPSTest {
         System.out.println("reconstructPath");
         MapReader mp = new MapReader("src/test/java/pathfinding/test2.map");
         char[][] map = mp.generateMap();
-        AStar tstar = new AStar(map);
+        JPS tstar = new JPS(map);
         Node start = new Node(0, 0, 1);
         Node end = new Node(2, 2, 1);
         ArrayList<Node> tpath = new ArrayList();
@@ -100,8 +99,13 @@ public class JPSTest {
         tpath.add(n3);
         tpath.add(n4);
         tpath.add(end);
-        
-        tstar.reconstructPath(cameFrom, end, start);
+        Node[][] nodes = {{new Node(0, 0, 0), new Node(1, 0, 0), new Node(2, 0, 0)}
+        , {new Node(0, 1, 0), new Node(1, 1, 0), new Node(2, 1, 0)}
+        , {new Node(0, 2, 0), new Node(1, 2, 0), new Node(2, 2, 0)}};
+        for(Node[] n : nodes){
+            
+        }
+        tstar.reconstructPath(cameFrom, end, start, nodes);
         assertEquals(tpath.get(0), tstar.rpath.get(0));
         assertEquals(tpath.get(1), tstar.rpath.get(1));
         assertEquals(tpath.get(2), tstar.rpath.get(2));
@@ -116,7 +120,7 @@ public class JPSTest {
     public void testManhattanDistance() {
         System.out.println("ManhattanDistance");
         char[][] map = {{}};
-        AStar tstar = new AStar(map);
+        JPS tstar = new JPS(map);
         Node a = new Node(4, 3, 1);
         Node b = new Node(7, 4, 1);
         Node a1 = new Node(7, 4, 1);

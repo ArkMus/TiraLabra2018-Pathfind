@@ -7,16 +7,23 @@ import java.util.concurrent.TimeUnit;
 
 public class VisualRep {
     
-    void show(ArrayList<Node> path, char[][] map) throws InterruptedException{
-        ArrayList<Node> l = path;
+    void show(ArrayList<Node> path, char[][] map, Node start, Node end) throws InterruptedException{
         for (int i = 0; i < path.size(); i++) {
             Node n = path.get(i);
             int y = 0;
             for (char[] c : map) {
                 for (int x = 0; x < c.length; x++) {
-                    if (x == n.getX() && y == n.getY()) {
-                        System.out.print("#");
-                        map[y][x] = '#';
+                    if (x == start.getX() && y == start.getY()){
+                        System.out.print("S");
+                        map[y][x] = 'S';
+                    }
+                    else if (x == end.getX() && y == end.getY()){
+                        System.out.print("E");
+                        map[y][x] = 'E';
+                    }
+                    else if (x == n.getX() && y == n.getY()) {
+                        System.out.print("\u25CF");
+                        map[y][x] = '\u25CF';
                     } else {
                         System.out.print(c[x]);
                     }
@@ -25,7 +32,7 @@ public class VisualRep {
                 y++;
             }
             System.out.println("\n\n");
-            TimeUnit.MILLISECONDS.sleep(150);
+            TimeUnit.MILLISECONDS.sleep(100);
         }
     }
 }

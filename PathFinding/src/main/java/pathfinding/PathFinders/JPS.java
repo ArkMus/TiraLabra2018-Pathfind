@@ -43,9 +43,10 @@ public class JPS implements PathFinder {
             Node current = open.poll();
 
             if (current.equal(end)) {
-                reconstructPath(cameFrom, current, start);
+                int sum = reconstructPath(cameFrom, current, start, nodes);
                 aikaLopussa = System.currentTimeMillis(); 
-                return startCost.get(current);
+//                return startCost.get(current);
+                return sum;
             }
 
             closed.add(current);
@@ -66,6 +67,10 @@ public class JPS implements PathFinder {
                 }
 
                 Node current = new Node(x, y, 1);
+                if(map[y][x] == 'W'){
+                    current = new Node(x, y, 3);
+                }
+                
                 nodes[y][x] = current;
                 if (current.equal(start)) {
                     startCost.put(current, 0);
@@ -92,10 +97,10 @@ public class JPS implements PathFinder {
      * @param cameFrom The map that contains the best path to a node
      * @param current The end node
      * @param start The start node
+     * @param nodes Two dimensional array with all the nodes from the map.
      * @return
      */
-    @Override
-    public void reconstructPath(HashMap<Node, Node> cameFrom, Node current, Node start) {
+    public int reconstructPath(HashMap<Node, Node> cameFrom, Node current, Node start, Node[][] nodes) {
         ArrayList<Node> path = new ArrayList<>();
         while (!current.equal(start)) {
             path.add(current);
@@ -103,7 +108,65 @@ public class JPS implements PathFinder {
         }
         path.add(start);
         path.reverse();
+        ArrayList<Node> jpath = new ArrayList<>();
+        jpath.add(start);
+        Node previous = start;
+        for(int i = 1; i < path.size(); i++){
+            Node n = path.get(i);
+            int dx = n.getX() - previous.getX();
+            int dy = n.getY() - previous.getY();
+            int x = previous.getX();
+            int y = previous.getY();
+            if(dx == 0){
+                if(dy < 0){
+                    while (true) {
+                        if(!nodes[y][x].equal(previous))
+                            jpath.add(nodes[y][x]);
+                        if(nodes[y][x].equal(n)){
+                            break;
+                        }
+                        y--;
+                    }
+                }else {
+                    while (true) {
+                        if(!nodes[y][x].equal(previous))
+                            jpath.add(nodes[y][x]);
+                        if(nodes[y][x].equal(n)){
+                            break;
+                        }
+                        y++;
+                    }
+                }
+                
+            }else{
+                if (dx < 0) {
+                    while (true) {
+                        if(!nodes[y][x].equal(previous))
+                            jpath.add(nodes[y][x]);
+                        if (nodes[y][x].equal(n)) {
+                            break;
+                        }
+                        x--;
+                    }
+                } else {
+                    while (true) {
+                        if(!nodes[y][x].equal(previous))
+                            jpath.add(nodes[y][x]);
+                        if (nodes[y][x].equal(n)) {
+                            break;
+                        }
+                        x++;
+                    }
+                }
+            }
+            previous = n;
+        }
+        int sum = 0;
+        for(int i = 1; i < jpath.size(); i++){
+            sum += jpath.get(i).getCost();
+        }
         this.rpath = path;
+        return sum;
     }
 
     /**

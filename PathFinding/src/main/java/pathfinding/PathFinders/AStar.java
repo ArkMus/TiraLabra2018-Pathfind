@@ -84,8 +84,10 @@ public class AStar implements PathFinder {
                 if (map[y][x] == '@' || map[y][x] == 'O' || map[y][x] == 'T') {
                     continue;
                 }
-
                 Node current = new Node(x, y, 1);
+                if(map[y][x] == 'W'){
+                    current = new Node(x, y, 3);
+                }
                 nodes[y][x] = current;
                 if (current.equal(start)) {
                     startCost.put(current, 0);
@@ -114,7 +116,6 @@ public class AStar implements PathFinder {
      * @param start The start node
      * @return
      */
-    @Override
     public void reconstructPath(HashMap<Node, Node> cameFrom, Node current, Node start) {
         ArrayList<Node> path = new ArrayList<>();
         while (!current.equal(start)) {

@@ -28,7 +28,8 @@ public class PathFinding {
         while(true){
             System.out.println("Which map would you like to use?\n"
                     + "For 'test.map' press 1\n"
-                    + "For 'test2.map' press 2");
+                    + "For 'test2.map' press 2\n"
+                    + "For 'test3.map' press 3");
             input = sc.nextLine();
             if(input.equals("1")){
                 mr = new MapReader("src/main/java/pathfinding/Maps/test.map");
@@ -40,8 +41,13 @@ public class PathFinding {
                 start = new Node(0, 0, 1);
                 end = new Node(18, 12, 1);
             }
+            else if(input.equals("3")){
+                mr = new MapReader("src/main/java/pathfinding/Maps/test3.map");
+                start = new Node(0, 0, 1);
+                end = new Node(75, 25, 1);
+            }
             else{
-                System.out.println("Please type 1 or 2!");
+                System.out.println("Please type 1, 2 or 3!");
                 continue;
             }
             map = mr.generateMap();
@@ -70,7 +76,7 @@ public class PathFinding {
             System.out.println("ERROR, didn't find path...RIP");
         } else {
             VisualRep vr = new VisualRep();
-            vr.show(path, map);
+            vr.show(path, map, start, end);
             System.out.println("The shortest path is: ");
             System.out.println(path);
             System.out.println("and it's " + anwser + " steps long");
