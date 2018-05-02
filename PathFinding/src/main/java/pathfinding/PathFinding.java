@@ -6,12 +6,13 @@ import pathfinding.PathFinders.AStar;
 import pathfinding.PathFinders.JPS;
 import java.util.Scanner;
 import pathfinding.DataStructures.ArrayList;
-import pathfinding.DataStructures.HashMap;
 
 
 public class PathFinding {
 
     public static void main(String[] args) throws InterruptedException{
+        
+        
         
         Scanner sc = new Scanner(System.in);
         Node start = null;

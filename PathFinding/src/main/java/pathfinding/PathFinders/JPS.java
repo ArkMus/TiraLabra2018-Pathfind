@@ -3,7 +3,7 @@ package pathfinding.PathFinders;
 import pathfinding.DataStructures.ArrayList;
 import pathfinding.DataStructures.HashMap;
 import pathfinding.DataStructures.HashSet;
-import java.util.PriorityQueue;
+import pathfinding.DataStructures.PriorityQueue;
 import pathfinding.DataStructures.Node;
 
 public class JPS implements PathFinder {
