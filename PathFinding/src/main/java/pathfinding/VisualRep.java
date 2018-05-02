@@ -25,7 +25,7 @@ public class VisualRep {
                 y++;
             }
             System.out.println("\n\n");
-            TimeUnit.MILLISECONDS.sleep(50);
+            TimeUnit.MILLISECONDS.sleep(150);
         }
     }
 }

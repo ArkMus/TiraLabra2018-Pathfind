@@ -35,8 +35,8 @@ public class PriorityQueue<E> {
         }
         if(!isEmpty()){
             int a = current - 1;
-            if (e.getCost() > list[a].getCost()) {
-                list[current] = e;
+            if (e.getCost() >= list[a].getCost()) {
+                list[current] = e; 
             } else {
                 while (true) {
                     if(e.getCost() < list[a].getCost()){

@@ -32,8 +32,8 @@ public class PathFinding {
             input = sc.nextLine();
             if(input.equals("1")){
                 mr = new MapReader("src/main/java/pathfinding/Maps/test.map");
-                start = new Node(0, 0, 1);
-                end = new Node(6, 6, 1);
+                start = new Node(0, 6, 1);
+                end = new Node(6, 0, 1);
             }
             else if(input.equals("2")){
                 mr = new MapReader("src/main/java/pathfinding/Maps/test2.map");
