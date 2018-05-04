@@ -16,8 +16,12 @@
 * Loin UI luokan.
 * Siirsin MapReader ja VisualRep luokan pakettiin "Visuals".  
 * Kirjoitin viikkoraporttia.
+* Muokkasin UI luokkaa, niin että käyttäjä voi käyttää omia karttoja.
+* Siirsin karttoja.
+* Tein .jar tiedoston projektista joka löytyy A*JPS kansiosta. Kansiosta löytyy .jar tiedosto, Maps kansio ja README tiedosto.
+* Kirjoitin viikkoraporttia.
 
 #
 ## Käytetty aikaa tällä viikolla:
-~12 tuntia
+~17 tuntia
 

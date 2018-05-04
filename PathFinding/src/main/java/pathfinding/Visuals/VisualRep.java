@@ -18,6 +18,7 @@ public class VisualRep {
      */
     public void show(ArrayList<Node> path, char[][] map, Node start, Node end) throws InterruptedException{
         for (int i = 0; i < path.size(); i++) {
+            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
             Node n = path.get(i);
             int y = 0;
             for (char[] c : map) {
@@ -40,7 +41,6 @@ public class VisualRep {
                 System.out.println("");
                 y++;
             }
-            System.out.println("\n\n");
             TimeUnit.MILLISECONDS.sleep(100);
         }
     }
