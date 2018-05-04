@@ -76,7 +76,15 @@ public class AStar implements PathFinder {
         aikaLopussa = System.currentTimeMillis();
         return -1;
     }
-    
+    /**
+     * Initializes the data that is needed to perform the algorithm.
+     * @param nodes A Node array that contains all the walkable nodes in the map.
+     * @param start The start node.
+     * @param end The end node.
+     * @param startCost A hashmap that contains the cost from the start to a node.  
+     * @param endCost A hashmap that contains the cost from start to end, by passing a certain node.
+     * @param open A priorityqueue that contains the discovered nodes that have not been evaluated.
+     */
     private void initializeData(Node[][] nodes, Node start, Node end, HashMap<Node,
         Integer> startCost, HashMap<Node, Integer> endCost, PriorityQueue<Node> open){
         for (int y = 0; y < map.length; y++) {
@@ -138,7 +146,12 @@ public class AStar implements PathFinder {
     public int ManhattanDistance(Node a, Node b) {
         return (Math.abs(a.getX() - b.getX()) + Math.abs(a.getY() - b.getY()));
     }
-    
+    /**
+     * Adds all neighbors to a node.
+     * @param nodes A Node array that contains all the walkable nodes in the map. 
+     * @param node The current node where neighbors will be added.
+     * @return 
+     */
     public Node FindNeighbors(Node[][] nodes, Node node){
         ArrayList<Node> l = new ArrayList<>();
         if (node.getY() != 0) {

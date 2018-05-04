@@ -8,11 +8,18 @@ import java.io.IOException;
 public class MapReader {
 
     private final String fileName;
-
+    /**
+     * A class that makes a char[][] from a .map file.
+     * @param fileName The name of the .map file.
+     */
     public MapReader(String fileName) {
         this.fileName = fileName;
     }
-
+    
+    /**
+     * Returns a char[][] representation of a map from a .map file.
+     * @return 
+     */
     public char[][] generateMap() {
         int height = 0;
         int width = 0;

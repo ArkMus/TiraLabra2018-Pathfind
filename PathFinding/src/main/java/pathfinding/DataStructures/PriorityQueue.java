@@ -81,7 +81,11 @@ public class PriorityQueue<E> {
         list = newList;
         return returNode;
     }
-    
+    /**
+     * Returns the true if the queue contains the requested Node.
+     * @param e The node that is being checked.
+     * @return 
+     */
     public boolean contains(Node e){
         for(int i = 0; i < current; i++){
             Node n = list[i];
@@ -91,7 +95,10 @@ public class PriorityQueue<E> {
         }
         return false;
     }
-    
+    /**
+     * Will return true if the queue is empty, otherwise it will return false.
+     * @return 
+     */
     public boolean isEmpty(){
         for(int i = 0; i < current; i++){
             Node n = list[i];

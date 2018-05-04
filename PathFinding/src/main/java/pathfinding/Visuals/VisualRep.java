@@ -7,6 +7,15 @@ import java.util.concurrent.TimeUnit;
 
 public class VisualRep {
     
+    /**
+     * The method will show a visual representation of how a pathfinding algorithm
+     * goes from the start to the end.
+     * @param path The ArrayList that contains the nodes that is the path from start to end.
+     * @param map The char[][] representation of the map.
+     * @param start The start node.
+     * @param end The end node.
+     * @throws InterruptedException 
+     */
     public void show(ArrayList<Node> path, char[][] map, Node start, Node end) throws InterruptedException{
         for (int i = 0; i < path.size(); i++) {
             Node n = path.get(i);

@@ -24,7 +24,10 @@ public class HashSet<E> {
     public HashSet(){
         this.table = new Entry[this.size];
     }
-    
+    /**
+     * Adds a new element to the set.
+     * @param newElement The element that will be added.
+     */
     public void add(E newElement){
         if(newElement == null){
             return; // null element is not allowed
