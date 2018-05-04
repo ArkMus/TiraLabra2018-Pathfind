@@ -9,7 +9,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
-import pathfinding.MapReader;
+import pathfinding.Visuals.MapReader;
 import static org.junit.Assert.*;
 import org.junit.BeforeClass;
 
@@ -50,7 +50,6 @@ public class AStarTest {
         Node start = new Node(0, 6, 1);
         Node end = new Node(6, 0, 1);
         int anwser = ASTAR.find(start, end);
-        System.out.println(ASTAR.rpath);
         
         MapReader mp2 = new MapReader("src/test/java/pathfinding/wall.map");
         char[][] map2 = mp2.generateMap();

@@ -3,7 +3,7 @@
 #
 
 #### Yleisrakenne
-Ohjelelman rakenne tällä hetkellä:
+Ohjelman rakenne tällä hetkellä:
 * "pathfinding" paketti:
 MapReader, PathFinding(Main), VisualRep
 
@@ -18,7 +18,7 @@ ArrayList, HashMap, HashSet, Node
 
 
 ####  Aika- ja tilavaativuudet
-Koska JPS on toinen veriso A*:ista, niin molemmilla on samat Aika- ja tilavaativuudet.
+Koska JPS on toinen versio A*:ista, niin molemmilla on samat Aika- ja tilavaativuudet.
 
 
 Aikavaativuus on sama kuin Dijkstralla, mutta se riippuu mitä heuristiikkaa käyttää. Tässä tapauksessa käytän priority queue:tä, niin

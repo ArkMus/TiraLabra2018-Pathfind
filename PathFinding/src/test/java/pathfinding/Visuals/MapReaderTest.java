@@ -3,13 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pathfinding;
+package pathfinding.Visuals;
 
-import java.io.FileNotFoundException;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -22,7 +19,6 @@ public class MapReaderTest {
     public MapReaderTest() {
     }
     
-
     
     @Before
     public void setUp() {
@@ -50,11 +46,5 @@ public class MapReaderTest {
         assertArrayEquals(expResult, result);
         assertArrayEquals(expResult2, result2);
     }
-    
-//    @Test(expected = FileNotFoundException.class)
-//    public void testFileNotFoundException() {
-//        MapReader tmr2 = new MapReader("");
-//        char[][] result2 = tmr2.generateMap();
-//    }
     
 }

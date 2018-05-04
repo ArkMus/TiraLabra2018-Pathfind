@@ -1,5 +1,5 @@
 
-package pathfinding;
+package pathfinding.Visuals;
 
 import pathfinding.DataStructures.Node;
 import pathfinding.DataStructures.ArrayList;
@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 public class VisualRep {
     
-    void show(ArrayList<Node> path, char[][] map, Node start, Node end) throws InterruptedException{
+    public void show(ArrayList<Node> path, char[][] map, Node start, Node end) throws InterruptedException{
         for (int i = 0; i < path.size(); i++) {
             Node n = path.get(i);
             int y = 0;

@@ -9,7 +9,7 @@ import java.util.PriorityQueue;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import pathfinding.MapReader;
+import pathfinding.Visuals.MapReader;
 import static org.junit.Assert.*;
 
 /**
@@ -167,7 +167,6 @@ public class JPSTest {
         char[][] map = new char[3][3];
         JPS instance = new JPS(map);
         Node result1 = instance.Jump(1, 1, current, end, nodes);
-        System.out.println("1 " + result1);
         assertEquals(true, result1.equal(end));
     }
 

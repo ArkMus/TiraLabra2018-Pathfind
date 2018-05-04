@@ -1,4 +1,4 @@
-package pathfinding;
+package pathfinding.Visuals;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

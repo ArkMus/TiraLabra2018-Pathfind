@@ -1,4 +1,4 @@
-package pathfinding.PathFinders;
+package pathfinding.DataStructures;
 
 import pathfinding.DataStructures.Node;
 import org.junit.After;
