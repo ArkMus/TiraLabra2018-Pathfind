@@ -141,6 +141,8 @@ public class JPSTest {
         {new Node(0, 4, 0), new Node(0, 0, 0), new Node(2, 0, 0)},
         {new Node(0, 0, 0), new Node(0, 3, 0), new Node(0, 0, 0)}};
         char[][] map = new char[3][3];
+        
+        cameFrom.put(nodes[0][1], nodes[0][0]);
         JPS instance = new JPS(map);
         Node expResult = new Node(0, 0, 0);
         ArrayList<Node> l = new ArrayList<>();
@@ -150,6 +152,29 @@ public class JPSTest {
         Node result = instance.FindNeighbors(nodes[1][1], cameFrom, nodes);
         
         assertEquals(expResult.getNeighbors().get(0), result.getNeighbors().get(0));
+    }
+    
+    @Test
+    public void testFindNeighborsWithParent() {
+        System.out.println("FindNeighborsWithParent");
+        HashMap<Node, Node> cameFrom = new HashMap<>();
+        Node[][] nodes = {
+        {new Node(0, 0, 0), new Node(1, 0, 0), new Node(2, 0, 0)},
+        {new Node(0, 1, 0), new Node(1, 1, 0), new Node(2, 1, 0)},
+        {new Node(1, 2, 0), new Node(1, 2, 0), new Node(2, 2, 0)}};
+        
+        char[][] map = new char[3][3];
+        JPS instance = new JPS(map);
+        Node result = instance.FindNeighbors(nodes[0][1], cameFrom, nodes);
+        Node test = new Node(1, 0, 0);
+        ArrayList<Node> neigh = new ArrayList<>();
+        neigh.add(nodes[0][2]);
+        neigh.add(nodes[1][1]);
+        neigh.add(nodes[0][0]);
+        test.setNeighbors(neigh);
+        assertEquals(test.getNeighbors().get(0), result.getNeighbors().get(0));
+        assertEquals(test.getNeighbors().get(1), result.getNeighbors().get(1));
+        assertEquals(test.getNeighbors().get(2), result.getNeighbors().get(2));
     }
 
     /**

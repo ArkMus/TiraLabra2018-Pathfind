@@ -9,11 +9,18 @@ public class Node implements Comparable<Node>{
     private int y;
     private int cost;
     private ArrayList<Node> neighbors;
-
+    
+    /**
+     * Returns this nodes neighbors.
+     * @return 
+     */
     public ArrayList<Node> getNeighbors() {
         return neighbors;
     }
-
+    /**
+     * Replaces this nodes neighbors with the given neighbor list.
+     * @param neighbors The list of neighbors that will replace the current ones.
+     */
     public void setNeighbors(ArrayList<Node> neighbors) {
         this.neighbors = neighbors;
     }

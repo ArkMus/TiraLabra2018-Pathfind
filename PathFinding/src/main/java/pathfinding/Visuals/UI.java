@@ -78,7 +78,7 @@ public class UI {
                 }
                 
             } else {
-                System.out.println("Please type 1, 2 or 3!");
+                System.out.println("Please type 1, 2, 3, 4 or 5!");
                 continue;
             }
             map = mr.generateMap();
