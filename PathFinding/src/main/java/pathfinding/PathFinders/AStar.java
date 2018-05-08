@@ -44,8 +44,8 @@ public class AStar implements PathFinder {
         while (!open.isEmpty()) {
             Node current = open.poll();
             if (current.equal(end)) {
-                reconstructPath(cameFrom, current, start);
-                aikaLopussa = System.currentTimeMillis(); 
+                aikaLopussa = System.currentTimeMillis();
+                reconstructPath(cameFrom, current, start); 
                 return startCost.get(current);
             }
 

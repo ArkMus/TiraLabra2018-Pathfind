@@ -43,9 +43,8 @@ public class JPS implements PathFinder {
             Node current = open.poll();
 
             if (current.equal(end)) {
+                aikaLopussa = System.currentTimeMillis();
                 int sum = reconstructPath(cameFrom, current, start, nodes);
-                aikaLopussa = System.currentTimeMillis(); 
-//                return startCost.get(current);
                 return sum;
             }
 

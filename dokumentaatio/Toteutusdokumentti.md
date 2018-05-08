@@ -5,16 +5,17 @@
 #### Yleisrakenne
 Ohjelman rakenne tällä hetkellä:
 * "pathfinding" paketti:
-MapReader, PathFinding(Main), VisualRep
+PathFinding(Main)
+
+* "pathfinding.DataStructures" paketti:
+ArrayList, HashMap, HashSet, Node, PriorityQueue
 
 * "pathfinding.PathFinders" paketti:
 PathFinder (rajapinta), AStar, JPS
 
-* "pathfinding.Maps" paketti:
-test.map, test.map2
+* "pathfinding.Visuals" paketti:
+MapReader, UI, VisualRep
 
-* "pathfinding.DataStructures" paketti:
-ArrayList, HashMap, HashSet, Node
 
 
 ####  Aika- ja tilavaativuudet
@@ -29,13 +30,23 @@ pahimman tapauksen aikavaativuus on: O(|E| + |V|log|V|), missä E on "kaaret" ja
 Pahimman tapauksen tilavaativuus: O(|E| + |V|log|V|),  missä E on "kaaret" ja missä V on "solmut".
 
 #### Suorituskyky vertailu
-*Vertailu testattu 27.4.2018*
+*Testattu 27.4.2018*
 
-Testasin A*:in ja JPS:sän suorituskyvyn suorittamalla molemmat 10 kertaa käyttäen test.map tiedostoa. 
+Testasin A*:in ja JPS:sän suorituskyvyn suorittamalla molemmat 10 kertaa käyttäen eri karttoja. 
+
+**test.map**
 
 A* suorituskyky keskiarvo: 11.8ms.
 
 JPS suorituskyky keskiarvo: 9.1ms.
+
+**maze2.map**
+
+*Testattu 8.5.2018* 
+
+A* suorituskyky keskiarvo: 71.4ms.
+
+JPS suorituskyky keskiarvo: 58.3ms.
 
 
 #### Lähteet
