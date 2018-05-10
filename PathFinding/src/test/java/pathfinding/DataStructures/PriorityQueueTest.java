@@ -83,4 +83,12 @@ public class PriorityQueueTest {
         assertEquals(false, pq.isEmpty());
     }
     
+    @Test
+    public void testToString() {
+        PriorityQueue<Node> pq = new PriorityQueue<>();
+        pq.add(new Node(0, 0, 0));
+        pq.add(new Node(1, 1, 0));
+        assertEquals("[(0, 0), (1, 1)]", pq.toString());
+    }
+    
 }

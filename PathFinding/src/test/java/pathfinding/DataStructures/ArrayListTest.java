@@ -92,4 +92,11 @@ public class ArrayListTest {
         assertEquals(1, al.size());
     }
     
+    @Test
+    public void testToString() {
+        al.add(1);
+        al.add(2);
+        assertEquals("[1, 2]", al.toString());
+    }
+    
 }

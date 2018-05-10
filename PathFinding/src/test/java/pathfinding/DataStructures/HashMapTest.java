@@ -40,4 +40,17 @@ public class HashMapTest {
         assertEquals("World", map.get(74));
     }
     
+    @Test
+    public void getNonexistingKey() {
+        System.out.println("getNonexistingKey");
+        assertEquals(null, map.get(1));
+    }
+    
+    @Test
+    public void testToString() {
+        map.put(1, "hi");
+        map.put(2, "yo");
+        assertEquals("{1=hi, 2=yo}", map.toString());
+    }
+    
 }
