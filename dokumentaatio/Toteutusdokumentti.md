@@ -30,17 +30,19 @@ pahimman tapauksen aikavaativuus on: O(|E| + |V|log|V|), missä E on "kaaret" ja
 Pahimman tapauksen tilavaativuus: O(|E| + |V|log|V|),  missä E on "kaaret" ja missä V on "solmut".
 
 #### Suorituskyky vertailu
-*Testattu 27.4.2018*
+Testasin A*:in ja JPS:sän suorituskyvyn suorittamalla molemmat 10 kertaa käyttäen eri karttoja.
 
-Testasin A*:in ja JPS:sän suorituskyvyn suorittamalla molemmat 10 kertaa käyttäen eri karttoja. 
+*Testattu 27.4.2018* 
 
 **test.map**
 
 A* suorituskyky keskiarvo: 11.8ms.
+
 ![alt text](https://github.com/ArkMus/TiraLabra2018-Pathfind/blob/master/dokumentaatio/img/Atest.png "A* test.map")
 
 
 JPS suorituskyky keskiarvo: 9.1ms.
+
 ![alt text](https://github.com/ArkMus/TiraLabra2018-Pathfind/blob/master/dokumentaatio/img/Jtest.png "JPS test.map")
 
 
@@ -49,10 +51,12 @@ JPS suorituskyky keskiarvo: 9.1ms.
 *Testattu 8.5.2018* 
 
 A* suorituskyky keskiarvo: 71.4ms.
+
 ![alt text](https://github.com/ArkMus/TiraLabra2018-Pathfind/blob/master/dokumentaatio/img/AMaze.png "JPS test.map")
 
 
 JPS suorituskyky keskiarvo: 58.3ms.
+
 ![alt text](https://github.com/ArkMus/TiraLabra2018-Pathfind/blob/master/dokumentaatio/img/JMaze.png "JPS test.map")
 
 
