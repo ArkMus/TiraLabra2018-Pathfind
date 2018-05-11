@@ -1,16 +1,14 @@
 # Testausdokumentti
 
-#
 
 #### Testien toteuttaminen
 Testit on toteutettu JUnit:illa.
 
 #### Mitä on testattu?
-Tällä hetkellä AStar, JPS, MapReader ja Node luokilla on testejä.
+"Datastructures" ja "Pathfindiners" pakettejen luokat ovat testattu.
 
-#### Miten testit toimii?
-Ennen testien läpikäyntiä luodaan tarvittavat asiat, esim. AStarTest:in testFind() luo MapReader, char[][], AStar ja Node, koska AStar:in metodi find() tarvitsee ne suoritukseen. 
+#### Kattavuus?
+JacocoTestReport:in mukaan "DataStructures" kattavuus on **98%** ja "Pathfinders" kattavuus **85%**. 
 
-#### Tavoite
-Haluaisin että jokaisella metodilla olisi testi (paitsi get ja set metodit) ja että enemmän kuin yksi skenaario testattaisiin jokaisessa testissä.
-
+#### JacocoTestReport?
+JacocoTestReportin voi louda jos NetBeans:issa klikkaa hiiren oikealla painikkeella projektia, klikkaa "Tasks", klikkaa "jacoco" ja sitten "jacocoTestReport". Tämän jälkeen raportti löytyy polusta `/PathFinding/build/reports/jacoco/test/html/index.html`.

@@ -37,16 +37,24 @@ Testasin A*:in ja JPS:sän suorituskyvyn suorittamalla molemmat 10 kertaa käytt
 **test.map**
 
 A* suorituskyky keskiarvo: 11.8ms.
+![alt text](https://github.com/ArkMus/TiraLabra2018-Pathfind/blob/master/dokumentaatio/img/Atest.png "A* test.map")
+
 
 JPS suorituskyky keskiarvo: 9.1ms.
+![alt text](https://github.com/ArkMus/TiraLabra2018-Pathfind/blob/master/dokumentaatio/img/Jtest.png "JPS test.map")
+
 
 **maze2.map**
 
 *Testattu 8.5.2018* 
 
 A* suorituskyky keskiarvo: 71.4ms.
+![alt text](https://github.com/ArkMus/TiraLabra2018-Pathfind/blob/master/dokumentaatio/img/AMaze.png "JPS test.map")
+
 
 JPS suorituskyky keskiarvo: 58.3ms.
+![alt text](https://github.com/ArkMus/TiraLabra2018-Pathfind/blob/master/dokumentaatio/img/JMaze.png "JPS test.map")
+
 
 
 #### Lähteet
